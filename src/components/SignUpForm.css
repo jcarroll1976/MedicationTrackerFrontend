@@ -6,8 +6,9 @@
 }
 
 .form-container {
-    height: 200px;
-    width: 200px;
+    background-color: #FAF9F6;
+    height: 300px;
+    width: 300px;
     border: 1px solid lightgray;
     border-radius: 5px;
 }
@@ -15,4 +16,5 @@
 .signup-form {
     display: flex;
     flex-direction: column;
+    
 }
