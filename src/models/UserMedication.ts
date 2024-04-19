@@ -14,3 +14,10 @@ export interface Medication {
 export interface MedicationArray {
     medications: Medication[]
 }
+
+export interface DosagesLog {
+    id: string;
+    medication: Medication;
+    date: Date;
+    time?: Date;
+}
