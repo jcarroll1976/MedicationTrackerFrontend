@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DosagesLog, Medication } from "../models/UserMedication";
+import { Medication } from "../models/UserMedication";
 
 interface Props {
     medication: Medication;
@@ -40,4 +40,4 @@ export default function DosageLog({medication,onLogDosage}:Props) {
         </div>
     );
 
-};
+}

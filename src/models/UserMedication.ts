@@ -4,11 +4,13 @@ export interface User {
 }
 
 export interface Medication {
-    id: string;
+    id?: string;
     name: string;
     dosage: string;
     frequency: string;
     refillDate: Date;
+    instructions?: string;
+    sideEffects?: string[];
 }
 
 export interface MedicationArray {
