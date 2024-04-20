@@ -11,7 +11,7 @@ export default function MedicationList() {
                 {medications.map((medication) => (
                     <li key={medication.id}>
                         <div>
-                            <span>{medication.name}</span>
+                            <p>{medication.name}</p>
                             <span>
                                 {medication.dosage}
                                 ({medication.frequency})

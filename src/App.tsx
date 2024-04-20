@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 
-//import SignUpForm from './components/SignUpForm';
+import SignUpForm from './components/SignUpForm';
 import MedicationList from './components/MedicationList';
 import DosageLog from './components/DosageLog';
 import { Medication } from './models/UserMedication';
+import AddMedication from './components/AddMedication';
+import MedicationDetails from './components/MedicationDetails';
 
 function App() {
   const [selectedMedication, setSelectedMedication] = useState<Medication | null>(null);
@@ -15,10 +17,13 @@ function App() {
   }
   return (
     <div className="App">
+      <SignUpForm />
       <MedicationList />
-      {selectedMedication && (
+      <MedicationDetails />
+      {/*{selectedMedication && (
       <DosageLog medication={selectedMedication} onLogDosage={handleLogDosage} />
-      )}
+      )}*/}
+      <AddMedication />
     </div>
   );
 }
