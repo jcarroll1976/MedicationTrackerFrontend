@@ -10,6 +10,9 @@
     "@types/node": "^16.18.96",
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
+    "axios": "^1.6.8",
+    "bcrypt": "^5.1.1",
+    "firebase": "^10.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -39,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2"
   }
 }

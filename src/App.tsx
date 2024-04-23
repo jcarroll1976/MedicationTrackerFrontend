@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 
-import SignUpForm from './components/SignUpForm';
+import Login from './components/Login';
 import MedicationList from './components/MedicationList';
 import DosageLog from './components/DosageLog';
 import { Medication } from './models/UserMedication';
@@ -17,7 +17,7 @@ function App() {
   }
   return (
     <div className="App">
-      <SignUpForm />
+      <Login/>
       <MedicationList />
       <MedicationDetails />
       {/*{selectedMedication && (

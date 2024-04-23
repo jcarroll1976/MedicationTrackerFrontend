@@ -1,6 +1,10 @@
 export interface User {
-    username: string;
-    password: string;
+    uid: string;
+
+}
+
+export interface UserCredentials {
+    user: User
 }
 
 export interface Medication {
@@ -18,7 +22,7 @@ export interface MedicationArray {
 }
 
 export interface DosagesLog {
-    id: string;
+    id?: string;
     medication: Medication;
     date: Date;
     time?: Date;
