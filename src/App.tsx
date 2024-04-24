@@ -18,12 +18,12 @@ function App() {
   return (
     <div className="App">
       <Login/>
-      <MedicationList />
-      <MedicationDetails />
+      {/*<MedicationList />*/}
+      {/*<MedicationDetails />*/}
       {/*{selectedMedication && (
       <DosageLog medication={selectedMedication} onLogDosage={handleLogDosage} />
       )}*/}
-      <AddMedication />
+      {/*<AddMedication />*/}
     </div>
   );
 }
