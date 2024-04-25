@@ -1,7 +1,11 @@
 import { FormEvent, useState } from "react";
 import { Medication } from "../models/UserMedication";
 
-export default function AddMedication() {
+interface Props {
+    onSubmit: (medication: Medication) => void;
+}
+
+export default function AddMedication({onSubmit}:Props) {
     const [name,setName] = useState("");
     const [dosage,setDosage] = useState("");
     const [frequency,setFrequency] = useState("");
@@ -19,6 +23,13 @@ export default function AddMedication() {
             instructions,
             sideEffects
         };
+        onSubmit(medication);
+        setName("");
+        setDosage("");
+        setFrequency("");
+        setRefillDate(new Date());
+        setInstructions("");
+        setSideEffects([]);
     };
 
     return (
