@@ -4,12 +4,8 @@ export interface User {
     email: string;
 }
 
-export interface UserCredentials {
-    user: User
-}
-
 export interface Medication {
-    id?: string;
+    id: string;
     name: string;
     dosage: string;
     frequency: string;

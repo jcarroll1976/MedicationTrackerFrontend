@@ -1,28 +1,32 @@
 import { useContext } from "react";
 import { signInWithGoogle,signOut } from "../firebaseconfig";
 import AuthContext from "../context/AuthContext";
+import loginImage from "../../src/towfiqu-barbhuiya-w8p9cQDLX7I-unsplash.jpg"
+
+import "./Login.css";
 
 export default function Login() {
     const {user} = useContext(AuthContext);
 
-    return(
-        <div>
-            <h2>This is the login page</h2>
-            {user ?
-            <button onClick={signOut}>Sign out</button> :
-            <button onClick={signInWithGoogle}>Sign in with Google</button>
-            }
-            
-            <div>
-                {user ?
-                <div>
-                <p>User: {user!.uid}</p>
-                <p>Display Name: {user!.displayName}</p>
-                <p>Email: {user!.email}</p>
-                { !!user!.photoURL && <p>Photo: <img src={user!.photoURL} alt=""/></p> }
-                </div> :
-                ""}
+    return (
+        <div className="login-container">
+            <img className="login-image" src={loginImage} alt="" />
+                <div className="login-content">
+                    <h1>MediTrack</h1>
+                    <h3>Stay Healthy, Stay on Track.</h3>
+                    <ul className="features">
+                        <li>Never miss a dose again with reminder notifications.</li>
+                        <li>Track your medications and refills seamlessly.</li>
+                        <li>Log dosages and manage your medication schedule.</li>
+                        <li>Securely access your medication information anytime, anywhere.</li>
+                    </ul>
+                    {user ?
+                    <button onClick={signOut}>Sign out</button> :
+                    <button onClick={signInWithGoogle}>Sign in with Google</button>
+                    }
+                </div>
             </div>
-        </div>
     )
+            
+    
 }

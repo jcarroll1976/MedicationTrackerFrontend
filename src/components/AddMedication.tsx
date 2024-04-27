@@ -1,11 +1,17 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
+import AuthContext from "../context/AuthContext";
 import { Medication } from "../models/UserMedication";
+//import { postUserMedication } from "../services/MedicationServices";
 
 interface Props {
-    onSubmit: (medication: Medication) => void;
+    onSubmit: (user_id: string, medication: Medication) => void;
 }
 
 export default function AddMedication({onSubmit}:Props) {
+    const {user} = useContext(AuthContext);
+
+    const user_id = user!.uid;
+
     const [name,setName] = useState("");
     const [dosage,setDosage] = useState("");
     const [frequency,setFrequency] = useState("");
@@ -16,6 +22,7 @@ export default function AddMedication({onSubmit}:Props) {
     const handleSubmit = (e:FormEvent) => {
         e.preventDefault();
         const medication: Medication = {
+            id: user_id,
             name,
             dosage,
             frequency,
@@ -23,7 +30,7 @@ export default function AddMedication({onSubmit}:Props) {
             instructions,
             sideEffects
         };
-        onSubmit(medication);
+        onSubmit(user_id,medication);
         setName("");
         setDosage("");
         setFrequency("");
@@ -38,6 +45,7 @@ export default function AddMedication({onSubmit}:Props) {
             <input
                 type="text"
                 id="name"
+                required ={true}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
             />
@@ -45,6 +53,7 @@ export default function AddMedication({onSubmit}:Props) {
             <input
                 type="text"
                 id="dosage"
+                required={true}
                 value={dosage}
                 onChange={(e) => setDosage(e.target.value)}
             />
@@ -52,6 +61,7 @@ export default function AddMedication({onSubmit}:Props) {
             <input
                 type="text"
                 id="frequency"
+                required={true}
                 value={frequency}
                 onChange={(e) => setFrequency(e.target.value)}
             />
@@ -59,6 +69,7 @@ export default function AddMedication({onSubmit}:Props) {
             <input
                 type="date"
                 id="refillDate"
+                required={true}
                 value={refillDate.toISOString().substring(0,10)}
                 onChange={(e) => setRefillDate(new Date(e.target.value))}
             />
