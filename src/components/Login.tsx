@@ -12,7 +12,7 @@ export default function Login() {
         <div className="login-container">
             <img className="login-image" src={loginImage} alt="" />
                 <div className="login-content">
-                    <h1>MediTrack</h1>
+                    <h1 className="login-title">MediTrack</h1>
                     <h3>Stay Healthy, Stay on Track.</h3>
                     <ul className="features">
                         <li>Never miss a dose again with reminder notifications.</li>
@@ -21,8 +21,8 @@ export default function Login() {
                         <li>Securely access your medication information anytime, anywhere.</li>
                     </ul>
                     {user ?
-                    <button onClick={signOut}>Sign out</button> :
-                    <button onClick={signInWithGoogle}>Sign in with Google</button>
+                    <div><button className="login-button" onClick={signOut}>Sign out</button></div> :
+                    <div><button className="login-button" onClick={signInWithGoogle}>Sign in with Google</button></div>
                     }
                 </div>
             </div>
