@@ -1,4 +1,10 @@
 body {
   background-color: #e9ecef;
   color: #212121;
+  
+}
+
+.navbar-div {
+  position: sticky;
+  top: 0px;
 }

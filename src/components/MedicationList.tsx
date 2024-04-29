@@ -1,14 +1,25 @@
-//import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
-import { medications } from "../medication";
+//import { medications } from "../medication";
+import { Medication, MedicationArray } from "../models/UserMedication";
+import AuthContext from "../context/AuthContext";
+import { getUserMedications } from "../services/MedicationServices";
 
 export default function MedicationList() {
-    //const [medications,setMedications] = useState([]);
+    const [medications,setMedications] = useState<MedicationArray>();
+    const {user} = useContext(AuthContext);
 
+    useEffect(() => {
+        if (user?.uid) {
+            getUserMedications(user.uid).then(data => {
+                setMedications(data)
+            })
+        }
+    },[user])
     return (
         <div>
             <ul>
-                {medications.map((medication) => (
+                {medications?.medications.map((medication) => (
                     <li key={medication.id}>
                         <div>
                             <p>{medication.name}</p>
@@ -18,7 +29,7 @@ export default function MedicationList() {
                             </span>
                             <div>
                                 <h3>Refill Date:</h3>
-                                {medication.refillDate}
+                                {medication.refillDate.toLocaleDateString()}
                             </div>
                         </div>
                     </li>

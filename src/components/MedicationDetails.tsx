@@ -1,10 +1,23 @@
+import { useContext, useEffect, useState } from "react";
 import { Medication } from "../models/UserMedication";
+import { getUserMedicationById } from "../services/MedicationServices";
+import AuthContext from "../context/AuthContext";
 
 interface Props {
     medicationDetails: Medication;
 }
 
 export default function MedicationDetails(/*{medicationDetails}:Props*/) {
+    const [medication,setMedication] = useState<Medication>();
+    const {user} = useContext(AuthContext);
+
+    useEffect(()=> {
+        if (user?.uid && medication?.id) {
+        getUserMedicationById(user.uid,medication.id).then(data => {
+            setMedication(data)
+        })
+    }
+    },[user,medication])
     return (
         <div>
             <h2>Aspirin{/*{medicationDetails.name}*/}</h2>

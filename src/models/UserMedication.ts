@@ -15,6 +15,7 @@ export interface Medication {
 }
 
 export interface MedicationArray {
+    id:string;
     medications: Medication[]
 }
 

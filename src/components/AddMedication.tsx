@@ -1,7 +1,7 @@
 import { FormEvent, useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
 import { Medication } from "../models/UserMedication";
-//import { postUserMedication } from "../services/MedicationServices";
+import { postUserMedication } from "../services/MedicationServices";
 
 interface Props {
     onSubmit: (user_id: string, medication: Medication) => void;
@@ -10,7 +10,7 @@ interface Props {
 export default function AddMedication({onSubmit}:Props) {
     const {user} = useContext(AuthContext);
 
-    const user_id = user!.uid;
+    const user_id = user?.uid;
 
     const [name,setName] = useState("");
     const [dosage,setDosage] = useState("");
@@ -22,7 +22,7 @@ export default function AddMedication({onSubmit}:Props) {
     const handleSubmit = (e:FormEvent) => {
         e.preventDefault();
         const medication: Medication = {
-            id: user_id,
+            id: user_id!,
             name,
             dosage,
             frequency,
@@ -30,7 +30,7 @@ export default function AddMedication({onSubmit}:Props) {
             instructions,
             sideEffects
         };
-        onSubmit(user_id,medication);
+        onSubmit(user_id!,medication);
         setName("");
         setDosage("");
         setFrequency("");

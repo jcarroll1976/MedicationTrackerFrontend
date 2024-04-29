@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { signInWithGoogle,signOut } from "../firebaseconfig";
 import AuthContext from "../context/AuthContext";
-import loginImage from "../../src/towfiqu-barbhuiya-w8p9cQDLX7I-unsplash.jpg"
+import loginImage from "../../src/towfiqu-barbhuiya-w8p9cQDLX7I-unsplash.jpg";
 
 import "./Login.css";
 
@@ -25,6 +25,7 @@ export default function Login() {
                     <div><button className="login-button" onClick={signInWithGoogle}>Sign in with Google</button></div>
                     }
                 </div>
+                
             </div>
     )
             
