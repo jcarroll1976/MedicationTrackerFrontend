@@ -14,7 +14,8 @@ export default function MedicationDetails(/*{medicationDetails}:Props*/) {
     useEffect(()=> {
         if (user?.uid && medication?._id) {
         getUserMedicationById(user.uid,medication._id).then(data => {
-            setMedication(data)
+            console.log(data)
+            //setMedication(data)
         })
     }
     },[user,medication])

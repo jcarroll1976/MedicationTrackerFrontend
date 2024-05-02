@@ -42,8 +42,8 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path="/medications" element={<MedicationList />} />
           <Route path="/add-medication" element={<AddMedication onSubmit={(user_id: string,medication:Medication) => submitHandler(user_id!,medication)} />} />
-      {/*<MedicationDetails />
-      {selectedMedication && (
+          <Route path="/medication-details/_id" element={<MedicationDetails />} />
+      {/*{selectedMedication && (
       <DosageLog medication={selectedMedication} onLogDosage={handleLogDosage} />
       )}*/}
 

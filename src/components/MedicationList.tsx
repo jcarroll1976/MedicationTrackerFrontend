@@ -23,9 +23,10 @@ export default function MedicationList() {
             {medications?.map((medication) => (
                 <div className="medication-div" key={medication._id?.toString()}>
                     <p>{medication.name}</p>
-                    <p>{medication.dosage}</p>
+                    <Link to = {"/medication-details/_id"}><button>Click for details</button></Link>
+                    {/*<p>{medication.dosage}</p>
                     <p>{medication.frequency}</p>
-                    {medication.instructions ? <textarea>{medication.instructions}</textarea> : ""}
+            {medication.instructions ? <textarea>{medication.instructions}</textarea> : ""}*/}
 
                 </div>
             ))}

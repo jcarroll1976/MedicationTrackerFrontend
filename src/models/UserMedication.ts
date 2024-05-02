@@ -23,7 +23,8 @@ export interface MedicationArray {
 }
 
 export interface DosagesLog {
-    id?: string;
+    _id?: ObjectId;
+    user_id: string;
     medication: Medication;
     date: Date;
     time?: Date;
