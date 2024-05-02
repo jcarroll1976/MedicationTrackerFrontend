@@ -1,0 +1,13 @@
+body {
+    height: 500px;
+    width:100vw;
+}
+
+h1 {
+    color:blue
+}
+
+.medication-div {
+    color: #243B55;
+    font-family: "Roboto";
+}

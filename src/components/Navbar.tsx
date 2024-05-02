@@ -16,7 +16,7 @@ export default function Navbar() {
                     <Link to = {"/home"}>
                         <button className="login-button">Home</button>
                     </Link>
-                    <Link to = {"/user_id/medications"}>
+                    <Link to = {"/medications"}>
                         <button className="login-button">Medications</button>
                 </Link>
                 </span> :

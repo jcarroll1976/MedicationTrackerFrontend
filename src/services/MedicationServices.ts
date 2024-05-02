@@ -1,13 +1,14 @@
 import axios from "axios";
 import { Medication, MedicationArray } from "../models/UserMedication";
+import { ObjectId } from "mongodb";
 
-export function getUserMedications(user_id:string):Promise<MedicationArray> {
+export function getUserMedications(user_id:string):Promise<Medication[]> {
     return axios.get(`http://127.0.0.1:5001/health-app-65191/us-central1/api/${user_id}/medications`)
     .then(response => response.data)
 }
 
-export function getUserMedicationById(user_id: string, id: string):Promise<Medication> {
-    return axios.get(`http://127.0.0.1:5001/health-app-65191/us-central1/api/${user_id}/medications/${id}`)
+export function getUserMedicationById(user_id: string, _id:ObjectId):Promise<Medication> {
+    return axios.get(`http://127.0.0.1:5001/health-app-65191/us-central1/api/${user_id}/medications/${_id}`)
     .then(response => response.data);
 }
 

@@ -2,6 +2,7 @@ import { FormEvent, useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
 import { Medication } from "../models/UserMedication";
 import { postUserMedication } from "../services/MedicationServices";
+import { ObjectId } from "mongodb";
 
 interface Props {
     onSubmit: (user_id: string, medication: Medication) => void;
@@ -22,7 +23,7 @@ export default function AddMedication({onSubmit}:Props) {
     const handleSubmit = (e:FormEvent) => {
         e.preventDefault();
         const medication: Medication = {
-            id: user_id!,
+            user_id: user_id!,
             name,
             dosage,
             frequency,

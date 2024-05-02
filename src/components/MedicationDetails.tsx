@@ -12,8 +12,8 @@ export default function MedicationDetails(/*{medicationDetails}:Props*/) {
     const {user} = useContext(AuthContext);
 
     useEffect(()=> {
-        if (user?.uid && medication?.id) {
-        getUserMedicationById(user.uid,medication.id).then(data => {
+        if (user?.uid && medication?._id) {
+        getUserMedicationById(user.uid,medication._id).then(data => {
             setMedication(data)
         })
     }

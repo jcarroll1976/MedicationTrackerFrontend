@@ -32,17 +32,21 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        <div className='headerDiv'>
+          <Navbar />
+        </div>
+        
       <div>
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/home' element={<Home />} />
-          <Route path="/user_id/medications" element={<MedicationList />} />
+          <Route path="/medications" element={<MedicationList />} />
+          <Route path="/add-medication" element={<AddMedication onSubmit={(user_id: string,medication:Medication) => submitHandler(user_id!,medication)} />} />
       {/*<MedicationDetails />
       {selectedMedication && (
       <DosageLog medication={selectedMedication} onLogDosage={handleLogDosage} />
-      )}}
-      {user ?<AddMedication onSubmit={(user_id: string,medication:Medication) => submitHandler(user_id!,medication)} /> : ("")}*/}
+      )}*/}
+
         </Routes>
       </div>
       </Router>
