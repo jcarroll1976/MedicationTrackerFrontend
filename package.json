@@ -16,6 +16,7 @@
     "mongodb": "^6.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.23.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@types/bcrypt": "^5.0.2"
+    "@types/bcrypt": "^5.0.2",
+    "@types/react-modal": "^3.16.3"
   }
 }
