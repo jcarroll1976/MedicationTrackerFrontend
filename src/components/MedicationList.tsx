@@ -1,13 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 
-//import { medications } from "../medication";
 import MedicationModal from "./MedicationModal";
-import { Medication, MedicationArray } from "../models/UserMedication";
+import { Medication } from "../models/UserMedication";
 import AuthContext from "../context/AuthContext";
 import { getUserMedications } from "../services/MedicationServices";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./MedicationList.css";
-//import "react-modal/dist/Modal.css";
 
 export default function MedicationList() {
     const [medications,setMedications] = useState<Medication[]>([]);
@@ -18,6 +16,7 @@ export default function MedicationList() {
     useEffect(() => {
         if (user?.uid) {
             getUserMedications(user.uid).then(data => {
+              console.log(data);
                 setMedications(data)
             })
         }
@@ -59,8 +58,8 @@ export default function MedicationList() {
         </thead>
         <tbody>
           {medications?.map((medication) => (
-            <tr key={medication._id?.toString()}>
-              <td>{medication.name}</td>
+            <tr key={medication._id}>
+              <Link to={`/medications/${medication._id}/add-dosage`}><td>{medication.name}</td></Link>
               <td>{medication.dosage}</td>
               <td>{medication.frequency}</td>
               <td>

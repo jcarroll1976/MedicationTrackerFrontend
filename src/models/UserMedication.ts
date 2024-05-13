@@ -1,5 +1,3 @@
-import { ObjectId } from "mongodb";
-
 export interface User {
     uid: string;
     displayName: string;
@@ -7,7 +5,7 @@ export interface User {
 }
 
 export interface Medication {
-    _id?: ObjectId;
+    _id?: string;
     user_id: string;
     name: string
     dosage: string;
@@ -23,9 +21,11 @@ export interface MedicationArray {
 }
 
 export interface DosagesLog {
-    _id?: ObjectId;
+    _id?: string;
     user_id: string;
-    medication: Medication;
+    medicationId: string;
+    name?: string;
     date: Date;
     time?: Date;
+    notes?: string;
 }
