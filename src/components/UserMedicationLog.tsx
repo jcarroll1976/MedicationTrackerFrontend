@@ -61,7 +61,7 @@ function UserMedicationLog() {
           <h2>{medication?.name} Dosage Logs</h2>
           {/* Conditionally render AddDosageLog component */}
           {medication ? (
-            <AddDosageLog medicationId={medicationId} onSubmit={handleAddDosageLog} />
+            {/*<AddDosageLog medicationId={medicationId} onSubmit={handleAddDosageLog} />*/}
           ) : (
             <p>Loading medication data...</p>
           )}
@@ -77,7 +77,7 @@ function UserMedicationLog() {
               </thead>
               <tbody>
                 {dosageLogs.map((dosageLog) => (
-                  <tr key={dosageLog.id}>
+                  <tr key={dosageLog._id}>
                     <td>{dosageLog.date.toLocaleDateString()}</td>
                     <td>{dosageLog?.time?.toLocaleTimeString()}</td>
                   </tr>

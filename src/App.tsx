@@ -6,7 +6,7 @@ import { Navigate, Route, BrowserRouter as Router, Routes, useParams } from 'rea
 import Login from './components/Login';
 import MedicationList from './components/MedicationList';
 import DosageLog from './components/DosageLog';
-import { Medication } from './models/UserMedication';
+import { DosagesLog, Medication } from './models/UserMedication';
 import AddMedication from './components/AddMedication';
 import MedicationDetails from './components/MedicationDetails';
 import { postUserMedication } from './services/MedicationServices';
@@ -22,10 +22,10 @@ function App() {
 
   const userId = user?.uid;
 
-  const [selectedMedication, setSelectedMedication] = useState<Medication | null>(null);
+  const [selectedMedicationId, setSelectedMedicationId] = useState<Medication | null>(null);
 
-  const handleLogDosage = (date:Date, time?: Date) => {
-    console.log("Dosage logged");
+  const handleLogDosage = (dosageLog: DosagesLog) => {
+    console.log("Dosage log added:", dosageLog);
   }
 
   function submitHandler(user_id:string,medication: Medication) {
@@ -48,7 +48,7 @@ function App() {
           <Route path="/medication-details/_id" element={<MedicationDetails />} />
           <Route
               path={`/medications/:medicationId/add-dosage`}
-              element={<AddDosageLog />} // Pass medicationId from useParams
+              element={<AddDosageLog selectedMedication = {selectedMedicationId} onSubmit={handleLogDosage} />} // Pass medicationId from useParams
           />
       {/*{selectedMedication && (
       <DosageLog medication={selectedMedication} onLogDosage={handleLogDosage} />

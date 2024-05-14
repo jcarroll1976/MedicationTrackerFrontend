@@ -6,6 +6,7 @@ import AuthContext from "../context/AuthContext";
 import { getUserMedications } from "../services/MedicationServices";
 import { Link } from "react-router-dom";
 import "./MedicationList.css";
+import RefillReminder from "./RefillReminder";
 
 export default function MedicationList() {
     const [medications,setMedications] = useState<Medication[]>([]);
@@ -80,7 +81,10 @@ export default function MedicationList() {
                   "-"
                 )}
               </td>
-            </tr>
+              <td>
+                {/*<RefillReminder medication={medication} />*/}
+              </td>
+            </tr> 
           ))}
         </tbody>
       </table>
