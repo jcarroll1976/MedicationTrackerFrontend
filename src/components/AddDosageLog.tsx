@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useParams } from 'react-router-dom'; // For programmatic navigation
+import { Link, useParams } from 'react-router-dom'; // For programmatic navigation
 import { DosagesLog, Medication } from '../models/UserMedication'; // Assuming DosagesLog interface
 import { postUserDosageLogById } from '../services/MedicationServices'; // Assuming service function
 import AuthContext from '../context/AuthContext';
@@ -25,7 +25,7 @@ function AddDosageLog({ selectedMedication, onSubmit }: Props) {
       time: today,
       user_id: user_id!,
       medicationId: medicationId!,
-      notes: notes
+      notes: notes,
     };
 
     try {
@@ -38,21 +38,24 @@ function AddDosageLog({ selectedMedication, onSubmit }: Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Log Dosage</h2>
-      <label htmlFor="date">Date:</label>
-      <input type="text" id="date" value={new Date().toLocaleDateString()} disabled /> {/* Display current date, disabled as it's captured in handleSubmit */}
-      <label htmlFor="time">Time:</label>
-      <input type="text" id="time" value={new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} disabled /> {/* Display current time, disabled as it's captured in handleSubmit */}
-      <label htmlFor="notes">Notes:</label>
-      <textarea id="notes" value={notes} onChange={(e) => setNotes(e.target.value)} />
-      {selectedMedication && (
-        <p>
-          Adding dosage for medication: <b>{selectedMedication.name}</b>
-        </p>
-      )}
-      <button type="submit">Log Dosage</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <h2>Log Dosage</h2>
+        <label htmlFor="date">Date:</label>
+        <input type="text" id="date" value={new Date().toLocaleDateString()} disabled /> {/* Display current date, disabled as it's captured in handleSubmit */}
+        <label htmlFor="time">Time:</label>
+        <input type="text" id="time" value={new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} disabled /> {/* Display current time, disabled as it's captured in handleSubmit */}
+        <label htmlFor="notes">Notes:</label>
+        <textarea id="notes" value={notes} onChange={(e) => setNotes(e.target.value)} />
+        {selectedMedication && (
+          <p>
+            Adding dosage for medication: <b>{selectedMedication.name}</b>
+          </p>
+        )}
+        <button type="submit">Log Dosage</button>
+      </form>
+      <Link to = {`/medications/${medicationId}/dosage-log`}><button>Dosage Logs</button></Link>
+    </div>
   );
 }
 

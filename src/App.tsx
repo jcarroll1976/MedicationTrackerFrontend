@@ -50,6 +50,10 @@ function App() {
               path={`/medications/:medicationId/add-dosage`}
               element={<AddDosageLog selectedMedication = {selectedMedicationId} onSubmit={handleLogDosage} />} // Pass medicationId from useParams
           />
+          <Route
+              path={`/medications/:medicationId/dosage-log`}
+              element={<UserMedicationLog />}
+          />
       {/*{selectedMedication && (
       <DosageLog medication={selectedMedication} onLogDosage={handleLogDosage} />
       )}*/}

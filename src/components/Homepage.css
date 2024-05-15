@@ -1,0 +1,31 @@
+.homepage-container {
+    text-align: center;
+  }
+  
+  .homepageIcon-container {
+    display: flex;
+    flex-direction: column; /* Change to column for mobile */
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* background-color: #f0f0f0; /* Optional background color */
+  }
+  
+  .homepageIcon-container div {
+    /* Add some space between icons and text on mobile */
+    margin-bottom: 1rem;
+    text-align: center; /* Center text within each icon container */
+  }
+  
+  h1 {
+    margin-bottom: 2rem; /* Add some space below the heading */
+  }
+  
+  /* Optional media query for even better mobile responsiveness */
+  @media (max-width: 768px) {
+    .homepageIcon-container div {
+      /* Increase font size for icons and text on smaller screens */
+      font-size: 1.2rem;
+    }
+  }
+  
