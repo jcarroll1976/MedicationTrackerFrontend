@@ -41,15 +41,18 @@ export default function AddMedication({onSubmit}:Props) {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Medication Name:</label>
-            <input
-                type="text"
-                id="name"
-                required ={true}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
+        <form onSubmit={handleSubmit} className="add-medication-form">
+            <div className="form-group">
+                <label htmlFor="name">Medication Name:</label>
+                <input
+                    type="text"
+                    id="name"
+                    required ={true}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+            </div>
+            <div className="form-group"></div>
             <label htmlFor="dosage">Dosage:</label>
             <input
                 type="text"
@@ -58,6 +61,7 @@ export default function AddMedication({onSubmit}:Props) {
                 value={dosage}
                 onChange={(e) => setDosage(e.target.value)}
             />
+            <div className="form-group"></div>
             <label htmlFor="frequency">Frequency:</label>
             <input
                 type="text"
@@ -66,41 +70,47 @@ export default function AddMedication({onSubmit}:Props) {
                 value={frequency}
                 onChange={(e) => setFrequency(e.target.value)}
             />
-            <label htmlFor="refillDate">Refill Date:</label>
-            <input
-                type="date"
-                id="refillDate"
-                required={true}
-                value={refillDate.toISOString().substring(0,10)}
-                onChange={(e) => setRefillDate(new Date(e.target.value))}
-            />
-            <label htmlFor="instructions">Instructions:</label>
-            <textarea
-                id="instructions"
-                value={instructions}
-                onChange={(e) => setInstructions(e.target.value)}
-            />
-            <label htmlFor="sideEffects">Side Effects:</label>
-            <div>
-                {sideEffects.map((sideEffect,index) => (
-                    <div key={index}>
-                        <input
-                            type="text"
-                            value={sideEffect}
-                            onChange={(e) => {
-                                const newSideEffects = [...sideEffects];
-                                newSideEffects[index] = e.target.value
-                                setSideEffects(newSideEffects)
-                            }}
-                        />
-                        <button type="button" onClick={() => setSideEffects(sideEffects.slice(0,index))}>
-                            Remove
-                        </button>
-                    </div>
-                ))}
-                <button type="button" onClick={() => setSideEffects([...sideEffects,""])}>
-                    Add Side Effect
-                </button>
+            <div className="form-group">
+                <label htmlFor="refillDate">Refill Date:</label>
+                <input
+                    type="date"
+                    id="refillDate"
+                    required={true}
+                    value={refillDate.toISOString().substring(0,10)}
+                    onChange={(e) => setRefillDate(new Date(e.target.value))}
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="instructions">Instructions:</label>
+                <textarea
+                    id="instructions"
+                    value={instructions}
+                    onChange={(e) => setInstructions(e.target.value)}
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="sideEffects">Side Effects:</label>
+                <div>
+                    {sideEffects.map((sideEffect,index) => (
+                        <div key={index}>
+                            <input
+                                type="text"
+                                value={sideEffect}
+                                onChange={(e) => {
+                                    const newSideEffects = [...sideEffects];
+                                    newSideEffects[index] = e.target.value
+                                    setSideEffects(newSideEffects)
+                                }}
+                            />
+                            <button type="button" onClick={() => setSideEffects(sideEffects.slice(0,index))}>
+                                Remove
+                            </button>
+                        </div>
+                    ))}
+                    <button type="button" onClick={() => setSideEffects([...sideEffects,""])}>
+                        Add Side Effect
+                    </button>
+                </div>
             </div>
             <button type="submit">Add Medication</button>
         </form>

@@ -1,0 +1,22 @@
+.add-medication-form {
+    display: flex;
+    flex-direction: column; /* Stack inputs vertically on mobile */
+    gap: 1rem; /* Add some space between form elements */
+    margin: 1rem; /* Add some margin for better layout */
+  }
+  
+  .add-medication-form label {
+    font-weight: bold; /* Bold text for labels */
+  }
+  
+  .add-medication-form input,
+  .add-medication-form textarea {
+    padding: 0.5rem; /* Add some padding to inputs */
+    border: 1px solid #ddd; /* Add a border to inputs */
+    border-radius: 4px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }

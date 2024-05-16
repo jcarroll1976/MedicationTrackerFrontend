@@ -3,6 +3,7 @@ import "./Navbar.css"
 import AuthContext from "../context/AuthContext"
 import { Link } from "react-router-dom";
 import { signInWithGoogle, signOut } from "../firebaseconfig";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Navbar() {
     const {user} = useContext(AuthContext);
@@ -29,3 +30,5 @@ export default function Navbar() {
         </div>
     )
 }
+
+
