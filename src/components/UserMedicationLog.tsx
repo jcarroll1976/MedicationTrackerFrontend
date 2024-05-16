@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom'; // Assuming route fetches medicationId
 import { DosagesLog, Medication } from '../models/UserMedication'; // Assuming DosagesLog and Medication interfaces
-import { getUserMedicationById, getUserDosageLogById } from '../services/MedicationServices'; // Assuming service functions
+import { getUserMedicationById, getUserDosageLogById, getUserDosageLogs } from '../services/MedicationServices'; // Assuming service functions
 import AuthContext from '../context/AuthContext';
 
 interface Props {
@@ -14,12 +14,12 @@ function UserMedicationLog() {
   const { user } = useContext(AuthContext); // Access user from context
   const user_id = user?.uid; // Extract user ID
   const { medicationId } = useParams(); // Access medicationId from route
-  
+
 
   useEffect(() => {
-    if (user_id && medicationId) {
+    /*if (user_id && medicationId) {
       // Fetch medication data first
-      /*getUserMedicationById(user_id, medicationId).then((fetchedMedication) => {
+      getUserMedicationById(user_id, medicationId).then((fetchedMedication) => {
         if (fetchedMedication) {
           console.log(fetchedMedication);
           setMedication(fetchedMedication);
@@ -27,17 +27,22 @@ function UserMedicationLog() {
           // Handle case where medication is not found (e.g., display an error message)
           console.error("Medication not found");
         }
-      });*/
+      })
 
       // Then fetch dosage logs
       getUserDosageLogById(user_id, medicationId).then((data) => {
         console.log(data)
-        setDosageLogs(data);
+      //  setDosageLogs(data);
       });
+    }*/
+    if (user_id ) {
+      getUserDosageLogs(user_id).then(data => {
+        console.log(data);
+      })
     }
-  }, [user_id, medicationId]);
+  }, [user_id]);
 
-  console.log(medicationId);
+  //console.log(medicationId);
   return (
     <div>
       {medicationId && (

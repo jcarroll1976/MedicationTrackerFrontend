@@ -6,7 +6,7 @@ export function getUserMedications(user_id:string):Promise<Medication[]> {
     .then(response => response.data)
 }
 
-export function getUserMedicationById(user_id: string, _id:string):Promise<Medication> {
+export function getUserMedicationById(user_id:string,_id:string):Promise<Medication> {
     return axios.get(`http://127.0.0.1:5001/health-app-65191/us-central1/api/${user_id}/medications/${_id}`)
     .then(response => response.data);
 }
@@ -31,8 +31,8 @@ export function getUserDosageLogs(user_id:string): Promise<DosagesLog[]> {
     .then(response => response.data)
 }
 
-export function getUserDosageLogById(user_id:string, medicationId:string): Promise<DosagesLog[]> {
-    return axios.get(`http://127.0.0.1:5001/health-app-65191/us-central1/api/${user_id}/medications/${medicationId}/dosageLogs`)
+export function getUserDosageLogById(medicationId:string): Promise<DosagesLog[]> {
+    return axios.get(`http://127.0.0.1:5001/health-app-65191/us-central1/api/medications/${medicationId}/dosageLogs`)
     .then(response => response.data)
 }
 
