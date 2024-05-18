@@ -34,7 +34,7 @@ export default function MedicationList() {
       };
 
     return (
-        <div>
+        <div className="medication-table">
             {/*medications?.length > 0 ? (
                 medications.map((medication) => (
                     <div className="medication-div" key={medication._id?.toString()}>
@@ -55,7 +55,7 @@ export default function MedicationList() {
             <th>Dosage</th>
             <th>Frequency</th>
             <th>Instructions</th>
-            <th>Side Effects</th>
+            <th>Refill Date</th>
           </tr>
         </thead>
         <tbody>

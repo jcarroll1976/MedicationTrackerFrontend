@@ -11,3 +11,30 @@ h1 {
     color: #243B55;
     font-family: "Roboto";
 }
+
+@media screen and (max-width: 768px) {
+    .medication-table {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .medication-table tr {
+        /* Make table rows display flex and wrap if content overflows */
+        display: flex;
+        flex-wrap: wrap;
+      }
+    
+      .medication-table th,
+      .medication-table td {
+        /* Set width for table cells to prevent horizontal overflow */
+        width: 100%;
+        /* Remove or adjust padding/margin for better spacing on mobile */
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        /* Display table cell content in a single line if it overflows */
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
