@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from "react-modal";
 import { Medication } from '../models/UserMedication';
+import "./MedicationModal.css";
 
 interface Props {
   isOpen: boolean;

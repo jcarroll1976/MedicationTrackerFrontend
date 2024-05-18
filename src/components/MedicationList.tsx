@@ -34,7 +34,7 @@ export default function MedicationList() {
       };
 
     return (
-        <div className="medication-table">
+        <div>
             {/*medications?.length > 0 ? (
                 medications.map((medication) => (
                     <div className="medication-div" key={medication._id?.toString()}>
@@ -48,7 +48,7 @@ export default function MedicationList() {
             )}
                 <Link to = {"/add-medication"}><button>Add A Medication</button></Link>*/}
             <h2>Click on Medication name to log medication dosage</h2>
-            <table>
+            <table className="medication-table">
         <thead>
           <tr>
             <th>Name</th>
@@ -61,7 +61,7 @@ export default function MedicationList() {
         <tbody>
           {medications?.map((medication) => (
             <tr key={medication._id}>
-              <Link to={`/medications/${medication._id}/add-dosage`}><td>{medication.name}</td></Link>
+              <Link to={`/medications/${medication._id}/add-dosage`}><td>{medication.name.toUpperCase()}</td></Link>
               <td>{medication.dosage}</td>
               <td>{medication.frequency}</td>
               <td>
@@ -86,7 +86,7 @@ export default function MedicationList() {
       <MedicationModal
         isOpen={isOpen}
         closeModal={closeModal}
-        title={selectedMedication?.name ? `${selectedMedication.name} Details` : "Medication Details"}
+        title={selectedMedication?.name ? `${selectedMedication.name.toUpperCase()} Details` : "Medication Details"}
         selectedMedication={selectedMedication}
       >
         {selectedMedication?.instructions ? (
