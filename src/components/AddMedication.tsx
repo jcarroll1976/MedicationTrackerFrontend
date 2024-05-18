@@ -16,7 +16,7 @@ export default function AddMedication({onSubmit}:Props) {
     const [name,setName] = useState("");
     const [dosage,setDosage] = useState("");
     const [frequency,setFrequency] = useState("");
-    const [refillDate,setRefillDate] = useState(new Date());
+    const [refillDate,setRefillDate] = useState("");
     const [instructions,setInstructions] = useState("");
     const [sideEffects,setSideEffects] = useState<string[]>([]);
 
@@ -35,7 +35,7 @@ export default function AddMedication({onSubmit}:Props) {
         setName("");
         setDosage("");
         setFrequency("");
-        setRefillDate(new Date());
+        setRefillDate(new Date().toString());
         setInstructions("");
         setSideEffects([]);
     };
@@ -75,9 +75,8 @@ export default function AddMedication({onSubmit}:Props) {
                 <input
                     type="date"
                     id="refillDate"
-                    required={true}
-                    value={refillDate.toISOString().substring(0,10)}
-                    onChange={(e) => setRefillDate(new Date(e.target.value))}
+                    value={refillDate}
+                    onChange={(e) => setRefillDate(new Date(e.target.value).toString())}
                 />
             </div>
             <div className="form-group">

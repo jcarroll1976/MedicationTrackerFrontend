@@ -47,6 +47,7 @@ export default function MedicationList() {
                     <h3>No Medications Found</h3>
             )}
                 <Link to = {"/add-medication"}><button>Add A Medication</button></Link>*/}
+            <h2>Click on Medication name to log medication dosage</h2>
             <table>
         <thead>
           <tr>
@@ -64,25 +65,19 @@ export default function MedicationList() {
               <td>{medication.dosage}</td>
               <td>{medication.frequency}</td>
               <td>
-                {medication.instructions ? (
+                {medication.instructions || medication.sideEffects ? (
                   <button onClick={() => openModal(medication)}>
-                    View Instructions
+                    Click for Instructions/Side Effects
                   </button>
                 ) : (
                   "-"
                 )}
               </td>
               <td>
-                {medication.sideEffects ? (
-                  <button onClick={() => openModal(medication)}>
-                    View Side Effects
-                  </button>
-                ) : (
-                  "-"
-                )}
-              </td>
+                {medication.refillDate ?new Date(medication.refillDate).toLocaleDateString() : "-"}
               <td>
-                {/*<RefillReminder medication={medication} />*/}
+                <RefillReminder medication={medication} />
+              </td>
               </td>
             </tr> 
           ))}
@@ -92,6 +87,7 @@ export default function MedicationList() {
         isOpen={isOpen}
         closeModal={closeModal}
         title={selectedMedication?.name ? `${selectedMedication.name} Details` : "Medication Details"}
+        selectedMedication={selectedMedication}
       >
         {selectedMedication?.instructions ? (
           <>
@@ -101,7 +97,16 @@ export default function MedicationList() {
         ) : (
           <p>No instructions available.</p>
         )}
-        {/* ... similar logic for side effects ... */}
+       {selectedMedication?.sideEffects ? (
+          <>
+            <h3>Side Effects</h3>
+            {/* Assuming sideEffects is a string or array of strings */}
+            <p>{selectedMedication.sideEffects}</p>
+            {/* You can modify this to display side effects in a list if it's an array */}
+          </>
+        ) : (
+          <p>No side effects listed.</p>
+        )}
       </MedicationModal>
       <Link to={"/add-medication"}><button>Add A Medication</button></Link>
         </div>

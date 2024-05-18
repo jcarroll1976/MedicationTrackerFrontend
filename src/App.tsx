@@ -5,7 +5,6 @@ import { Navigate, Route, BrowserRouter as Router, Routes, useParams } from 'rea
 
 import Login from './components/Login';
 import MedicationList from './components/MedicationList';
-import DosageLog from './components/DosageLog';
 import { DosagesLog, Medication } from './models/UserMedication';
 import AddMedication from './components/AddMedication';
 import MedicationDetails from './components/MedicationDetails';

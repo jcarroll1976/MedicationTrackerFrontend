@@ -35,12 +35,12 @@ function UserMedicationLog() {
       //  setDosageLogs(data);
       });
     }*/
-    if (user_id ) {
-      getUserDosageLogs(user_id).then(data => {
-        console.log(data);
+    if (medicationId ) {
+      getUserDosageLogById(medicationId).then(data => {
+        setDosageLogs(data);
       })
     }
-  }, [user_id]);
+  }, [medicationId]);
 
   //console.log(medicationId);
   return (
@@ -62,8 +62,8 @@ function UserMedicationLog() {
               <tbody>
                 {dosageLogs.map((dosageLog) => (
                   <tr key={dosageLog._id}>
-                    <td>{dosageLog.date.toLocaleDateString()}</td>
-                    <td>{dosageLog?.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
+                    <td>{new Date(dosageLog.date).toLocaleDateString()}</td>
+                    <td>{new Date(dosageLog?.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
                   </tr>
                 ))}
               </tbody>

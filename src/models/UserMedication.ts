@@ -10,7 +10,7 @@ export interface Medication {
     name: string
     dosage: string;
     frequency: string;
-    refillDate: Date;
+    refillDate?: string;
     instructions?: string;
     sideEffects?: string[];
 }
@@ -25,7 +25,7 @@ export interface DosagesLog {
     user_id: string;
     medicationId: string;
     name?: string;
-    date: Date;
-    time?: Date;
+    date:  string;
+    time: string;
     notes?: string;
 }
