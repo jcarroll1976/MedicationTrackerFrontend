@@ -3,6 +3,7 @@ import AuthContext from "../context/AuthContext";
 import { GiMedicines } from "react-icons/gi";
 import { CiViewList } from "react-icons/ci";
 import "./Homepage.css";
+import { Navigate } from "react-router-dom";
 
 export default function Home() {
     const {user} = useContext(AuthContext);
@@ -18,6 +19,10 @@ export default function Home() {
     }
     else if (date.getHours() >= 18 && date.getHours() < 24) {
         greetingMessage = `Good Evening, ${user?.displayName}`;
+    }
+
+    if (!user) {
+        return <Navigate to="/" />;
     }
 
     return (

@@ -55,7 +55,20 @@ export default function MedicationList() {
                         <p>{medication?.name}</p>
                         <p>{medication.dosage}</p>
                         <p>{medication.frequency}</p>
-                        {medication.instructions ? <textarea>{medication.instructions}</textarea> : ""}
+                        <textarea> {medication.instructions || medication.sideEffects ? (
+                            <button onClick={() => openModal(medication)}>
+                              Click for Instructions/Side Effects
+                            </button>
+                          ) : (
+                            "-"
+                          )}
+                        </textarea>
+                        <p>{medication.refillDate ?new Date(medication.refillDate).toLocaleDateString() : "N/A"}</p>
+                        <RefillReminder medication={medication} />
+                        <p><button onClick={() => handleRemoveMedication(medication._id!)}>
+                              Remove
+                            </button>
+                        </p>
                     </div>
                 )) ) : (
                     <h3>No Medications Found</h3>
@@ -102,7 +115,7 @@ export default function MedicationList() {
             </tr> 
           ))}
         </tbody>
-      </table>
+        </table>
       <MedicationModal
         isOpen={isOpen}
         closeModal={closeModal}

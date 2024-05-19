@@ -8,8 +8,9 @@ h1 {
 }
 
 .medication-div {
-    color: #243B55;
+    background-color: #243B55;
     font-family: "Roboto";
+    height: 500px;
 }
 
 @media screen and (max-width: 768px) {

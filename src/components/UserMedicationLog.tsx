@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom'; // Assuming route fetches medicationId
+import { Navigate, useParams } from 'react-router-dom'; // Assuming route fetches medicationId
 import { DosagesLog, Medication } from '../models/UserMedication'; // Assuming DosagesLog and Medication interfaces
 import { getUserMedicationById, getUserDosageLogById, getUserDosageLogs } from '../services/MedicationServices'; // Assuming service functions
 import AuthContext from '../context/AuthContext';
@@ -42,7 +42,10 @@ function UserMedicationLog() {
     }
   }, [medicationId]);
 
-  //console.log(medicationId);
+  if (!user) {
+    return <Navigate to="/" />;
+}
+
   return (
     <div>
       {medicationId && (

@@ -2,6 +2,7 @@ import { FormEvent, useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
 import { Medication } from "../models/UserMedication";
 import { postUserMedication } from "../services/MedicationServices";
+import { Navigate } from "react-router-dom";
 
 
 interface Props {
@@ -39,6 +40,10 @@ export default function AddMedication({onSubmit}:Props) {
         setInstructions("");
         setSideEffects([]);
     };
+
+    if (!user) {
+        return <Navigate to="/" />;
+    }
 
     return (
         <form onSubmit={handleSubmit} className="add-medication-form">

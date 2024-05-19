@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useParams } from 'react-router-dom'; // For programmatic navigation
+import { Link, Navigate, useParams } from 'react-router-dom'; // For programmatic navigation
 import { DosagesLog, Medication } from '../models/UserMedication'; // Assuming DosagesLog interface
 import { postUserDosageLogById } from '../services/MedicationServices'; // Assuming service function
 import AuthContext from '../context/AuthContext';
@@ -37,6 +37,10 @@ function AddDosageLog({ selectedMedication, onSubmit }: Props) {
       // Handle errors (e.g., display an error message to the user)
     }
   };
+
+  if (!user) {
+    return <Navigate to="/" />;
+}
 
   return (
     <div>
