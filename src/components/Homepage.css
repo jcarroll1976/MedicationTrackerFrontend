@@ -1,5 +1,6 @@
 .homepage-container {
     text-align: center;
+    margin: auto;
   }
   
   .homepageIcon-container {
@@ -8,7 +9,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    /* background-color: #f0f0f0; /* Optional background color */
+    /*background-color: #f0f0f0; /* Optional background color */
   }
   
   .homepageIcon-container div {
@@ -17,15 +18,15 @@
     text-align: center; /* Center text within each icon container */
   }
   
-  h1 {
-    margin-bottom: 2rem; /* Add some space below the heading */
-  }
+  /*h1 {
+    margin-bottom: 0.5rem; /* Add some space below the heading 
+  }*/
   
   /* Optional media query for even better mobile responsiveness */
   @media (max-width: 768px) {
     .homepageIcon-container div {
       /* Increase font size for icons and text on smaller screens */
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
   }
   
