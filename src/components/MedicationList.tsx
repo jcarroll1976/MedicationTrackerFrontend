@@ -74,7 +74,7 @@ export default function MedicationList() {
                     <h3>No Medications Found</h3>
             )}
                 <Link to = {"/add-medication"}><button>Add A Medication</button></Link>*/}
-            <h2>Click on Medication name to log medication dosage</h2>
+            <h2>Click on medication name to log dosage</h2>
             <table className="medication-table">
         <thead>
           <tr>
@@ -109,7 +109,7 @@ export default function MedicationList() {
               </td>
               <td>
                 <button onClick={() => handleRemoveMedication(medication._id!)}>
-                  Remove
+                  Remove Medication
                 </button>
               </td>
             </tr> 

@@ -21,10 +21,10 @@ export default function Login() {
                             <li>Log dosages and manage your medication schedule.</li>
                             <li>Securely access your medication information anytime, anywhere.</li>
                         </ul>
-                        {user ?
+                        {/*user ?
                         <div><button className="login-button" onClick={signOut}>Sign out</button></div> :
                         <div><button className="login-button" onClick={signInWithGoogle}>Sign in with Google</button></div>
-                        }
+    */}
                     </div>
                     
             </div>

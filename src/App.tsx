@@ -56,7 +56,7 @@ function App() {
       {/*{selectedMedication && (
       <DosageLog medication={selectedMedication} onLogDosage={handleLogDosage} />
       )}*/}
-
+          <Route path = "*" element={<Navigate to = "/"/>}/>
         </Routes>
       </div>
       </Router>
