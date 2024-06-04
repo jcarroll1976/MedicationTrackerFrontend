@@ -4,7 +4,7 @@ import MedicationModal from "./MedicationModal";
 import { Medication } from "../models/UserMedication";
 import AuthContext from "../context/AuthContext";
 import { getUserMedications, removeUserMedication } from "../services/MedicationServices";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./MedicationList.css";
 import RefillReminder from "./RefillReminder";
 
@@ -46,7 +46,10 @@ export default function MedicationList() {
           
       };
       
-
+      if (!user) {
+        return <Navigate to="/" />;
+    }
+    
     return (
         <div>
             {/*medications?.length > 0 ? (
