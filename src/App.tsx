@@ -15,6 +15,8 @@ import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import UserMedicationLog from './components/UserMedicationLog';
 import AddDosageLog from './components/AddDosageLog';
+import UpdateRefillDate from './components/UpdateRefill';
+import UpdateRefill from './components/UpdateRefill';
 
 function App() {
   const {user} = useContext(AuthContext);
@@ -30,6 +32,10 @@ function App() {
   function submitHandler(user_id:string,medication: Medication) {
     postUserMedication(user_id!, medication)
   };
+
+  function updateRefillHandler(medication:Medication) {
+
+  }
   
   return (
     <div className="App">
@@ -53,9 +59,8 @@ function App() {
               path={`/medications/:medicationId/dosage-log`}
               element={<UserMedicationLog />}
           />
-      {/*{selectedMedication && (
-      <DosageLog medication={selectedMedication} onLogDosage={handleLogDosage} />
-      )}*/}
+          <Route path={"/medications/:medicationId/update-refill"}
+                 element={<UpdateRefill selectedMedication = {selectedMedicationId} onSubmit={updateRefillHandler} />} />
           <Route path = "*" element={<Navigate to = "/"/>}/>
         </Routes>
       </div>

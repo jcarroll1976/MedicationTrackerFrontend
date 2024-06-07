@@ -106,6 +106,7 @@ export default function MedicationList() {
               </td>
               <td>
                 {medication.refillDate ?new Date(medication.refillDate).toLocaleDateString() : "N/A"}
+                <Link to={`/medications/${medication._id}/update-refill`}><button>Click to Update</button></Link>
               </td>
               <td>
                 <RefillReminder medication={medication} />
