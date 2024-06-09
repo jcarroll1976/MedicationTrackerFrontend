@@ -8,14 +8,13 @@ import MedicationList from './components/MedicationList';
 import { DosagesLog, Medication } from './models/UserMedication';
 import AddMedication from './components/AddMedication';
 import MedicationDetails from './components/MedicationDetails';
-import { postUserMedication } from './services/MedicationServices';
+import { postUserMedication, updateUserMedication } from './services/MedicationServices';
 import AuthContext from './context/AuthContext';
 import Home from './components/Homepage';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import UserMedicationLog from './components/UserMedicationLog';
 import AddDosageLog from './components/AddDosageLog';
-import UpdateRefillDate from './components/UpdateRefill';
 import UpdateRefill from './components/UpdateRefill';
 
 function App() {
@@ -33,8 +32,9 @@ function App() {
     postUserMedication(user_id!, medication)
   };
 
-  function updateRefillHandler(medication:Medication) {
-
+  function updateRefillHandler(medicationId: string, medication: Medication) {
+    console.log(medicationId, medication);
+    updateUserMedication(medicationId, medication);
   }
   
   return (
@@ -59,8 +59,7 @@ function App() {
               path={`/medications/:medicationId/dosage-log`}
               element={<UserMedicationLog />}
           />
-          <Route path={"/medications/:medicationId/update-refill"}
-                 element={<UpdateRefill selectedMedication = {selectedMedicationId} onSubmit={updateRefillHandler} />} />
+          <Route path={'/medications/:medicationId/update-refill'} element ={<UpdateRefill onSubmit={(medicationId:string,medication:Medication)=> updateRefillHandler(medicationId,medication)} />} />
           <Route path = "*" element={<Navigate to = "/"/>}/>
         </Routes>
       </div>

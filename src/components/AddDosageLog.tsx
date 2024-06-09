@@ -21,8 +21,8 @@ function AddDosageLog({ selectedMedication, onSubmit }: Props) {
     const today = new Date(); // Capture current date and time
 
     const dosageLog: DosagesLog = {
-      date: today.toLocaleDateString(),
-      time: today.toLocaleTimeString(),
+      date: today.toISOString(),
+      time: today.toISOString(),
       user_id: user_id!,
       medicationId: medicationId!,
       name: selectedMedication?.name,

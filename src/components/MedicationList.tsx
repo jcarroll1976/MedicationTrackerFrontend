@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import moment from "moment";
 
 import MedicationModal from "./MedicationModal";
 import { Medication } from "../models/UserMedication";
@@ -105,7 +106,7 @@ export default function MedicationList() {
                 )}
               </td>
               <td>
-                {medication.refillDate ?new Date(medication.refillDate).toLocaleDateString() : "N/A"}
+                {medication.refillDate ? (moment(medication.refillDate).format('MM/DD/YYYY')) : "N/A"}
                 <Link to={`/medications/${medication._id}/update-refill`}><button>Click to Update</button></Link>
               </td>
               <td>
