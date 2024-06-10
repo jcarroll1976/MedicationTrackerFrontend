@@ -37,6 +37,7 @@ import AuthContext from "../context/AuthContext"
 import { Link } from "react-router-dom";
 import { signInWithGoogle, signOut } from "../firebaseconfig";
 import { GiHamburgerMenu, GiMedicines } from "react-icons/gi";
+import { FaGoogle } from "react-icons/fa";
 import { AiOutlineHome } from "react-icons/ai";
 
 export default function Navbar() {
@@ -53,8 +54,17 @@ export default function Navbar() {
             <GiHamburgerMenu onClick={handleNav} className="mobile-nav" />
             {nav ? (
                 <div className="mobile-div">
-                    <Link to = {"/home"} onClick={handleNav}><AiOutlineHome size={20} /><span>Home</span></Link>
-                    <Link to = {"/medications"} onClick={handleNav}><GiMedicines size={20} /><span>Home</span></Link>
+                    {user ? (
+                        <div>
+                            <Link to = {"/home"} className="mobile-link" onClick={handleNav}><AiOutlineHome size={20} /><span>Home</span></Link>
+                            <Link to = {"/medications"} className="mobile-link" onClick={handleNav}><GiMedicines size={20} /><span>Medications</span></Link>
+                            <Link to = {"/login"} className="mobile-link" onClick={signOut}><FaGoogle size={20} />Sign Out</Link>
+                        </div>
+                    ) : (
+                        <div>
+                            <Link to = {"/home"} className="mobile-link" onClick={signInWithGoogle}><FaGoogle size={20} />Sign In With Google</Link>
+                        </div>
+                    )}
                 </div>
             ) : (
                 ""
