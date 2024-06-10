@@ -31,19 +31,34 @@ export default function Navbar() {
     )
 }*/
 
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import "./Navbar.css"
 import AuthContext from "../context/AuthContext"
 import { Link } from "react-router-dom";
 import { signInWithGoogle, signOut } from "../firebaseconfig";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu, GiMedicines } from "react-icons/gi";
+import { AiOutlineHome } from "react-icons/ai";
 
 export default function Navbar() {
     const {user} = useContext(AuthContext);
+    const [nav,setNav] = useState(false);
+
+    const handleNav = () => {
+        setNav(!nav);
+    }
 
     return (
         <div className="Navbar">
             <div><h1>MediTrack</h1></div>
+            <GiHamburgerMenu onClick={handleNav} className="mobile-nav" />
+            {nav ? (
+                <div className="mobile-div">
+                    <Link to = {"/home"} onClick={handleNav}><AiOutlineHome size={20} /><span>Home</span></Link>
+                    <Link to = {"/medications"} onClick={handleNav}><GiMedicines size={20} /><span>Home</span></Link>
+                </div>
+            ) : (
+                ""
+            )} 
             <div className="navButtons">
                 {user ?
                 <span>
