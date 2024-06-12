@@ -1,0 +1,60 @@
+.add-dosage-log {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem; /* Adjust margin values as needed */
+    font-size: 1.1rem;
+  }
+  
+  .add-dosage-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .add-dosage-log label,
+  .add-dosage-log input,
+  .add-dosage-log textarea,
+  .add-dosage-log p,
+  .add-dosage-log button {
+    margin-bottom: 0.5rem; /* Adjust margin values as needed */
+    font-size: 1.1rem;
+  }
+  
+  /* Media queries for larger screens */
+  @media (min-width: 768px) {
+    .add-dosage-log {
+      margin: 2rem; /* Adjust margin values for larger screens */
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .add-dosage-log {
+      margin: 3rem; /* Adjust margin values for larger screens */
+      font-size: 1.3rem;
+    }
+  }
+
+  .add-dosage-log label,
+  .add-dosage-log input,
+  .add-dosage-log textarea,
+  .add-dosage-log p,
+  .add-dosage-log button {
+    margin-bottom: 0.5rem; /* Adjust margin values as needed */
+    font-size: 1.3rem;
+  }
+  
+  @media (min-width: 1440px) {
+    .add-dosage-log {
+      margin: 4rem; /* Adjust margin values for larger screens */
+      font-size: 1.4rem;
+    }
+
+  .add-dosage-log label,
+  .add-dosage-log input,
+  .add-dosage-log textarea,
+  .add-dosage-log p,
+  .add-dosage-log button {
+    margin-bottom: 0.5rem; /* Adjust margin values as needed */
+    font-size: 1.4rem;
+  }
+  }

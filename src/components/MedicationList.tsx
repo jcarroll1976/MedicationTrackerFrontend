@@ -53,31 +53,6 @@ export default function MedicationList() {
     
     return (
         <div>
-            {/*medications?.length > 0 ? (
-                medications.map((medication) => (
-                    <div className="medication-div" key={medication._id?.toString()}>
-                        <p>{medication?.name}</p>
-                        <p>{medication.dosage}</p>
-                        <p>{medication.frequency}</p>
-                        <textarea> {medication.instructions || medication.sideEffects ? (
-                            <button onClick={() => openModal(medication)}>
-                              Click for Instructions/Side Effects
-                            </button>
-                          ) : (
-                            "-"
-                          )}
-                        </textarea>
-                        <p>{medication.refillDate ?new Date(medication.refillDate).toLocaleDateString() : "N/A"}</p>
-                        <RefillReminder medication={medication} />
-                        <p><button onClick={() => handleRemoveMedication(medication._id!)}>
-                              Remove
-                            </button>
-                        </p>
-                    </div>
-                )) ) : (
-                    <h3>No Medications Found</h3>
-            )}
-                <Link to = {"/add-medication"}><button>Add A Medication</button></Link>*/}
             <h2>Click on medication name to log dosage</h2>
             <table className="medication-table">
         <thead>

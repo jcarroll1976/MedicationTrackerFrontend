@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom'; // For programmatic navigation
+
+import "./AddDosageLog.css";
 import { DosagesLog, Medication } from '../models/UserMedication'; // Assuming DosagesLog interface
 import { postUserDosageLogById } from '../services/MedicationServices'; // Assuming service function
 import AuthContext from '../context/AuthContext';
@@ -43,8 +45,8 @@ function AddDosageLog({ selectedMedication, onSubmit }: Props) {
 }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className='add-dosage-log'>
+      <form className='add-dosage-form' onSubmit={handleSubmit}>
         <h2>Log Dosage</h2>
         <label htmlFor="date">Date:</label>
         <input type="text" id="date" value={new Date().toLocaleDateString()} disabled /> {/* Display current date, disabled as it's captured in handleSubmit */}
