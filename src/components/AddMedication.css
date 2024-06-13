@@ -1,7 +1,12 @@
+.add-medication-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .add-medication-form {
     display: flex;
     flex-direction: column; /* Stack inputs vertically on mobile */
-    gap: 1rem; /* Add some space between form elements */
+    /*gap: 1rem; Add some space between form elements */
     margin: 1rem; /* Add some margin for better layout */
   }
   

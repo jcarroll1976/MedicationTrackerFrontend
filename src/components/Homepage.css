@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    max-width: 700px;
     /*background-color: #f0f0f0; /* Optional background color */
   }
   
@@ -16,17 +17,30 @@
     /* Add some space between icons and text on mobile */
     margin-bottom: 1rem;
     text-align: center; /* Center text within each icon container */
+    font-size: 1.1rem;
   }
   
-  /*h1 {
-    margin-bottom: 0.5rem; /* Add some space below the heading 
-  }*/
+  h1 {
+    font-size: 1.3rem;
+  }
   
   /* Optional media query for even better mobile responsiveness */
-  @media (max-width: 768px) {
-    .homepageIcon-container div {
-      /* Increase font size for icons and text on smaller screens */
-      font-size: 1.1rem;
+  @media (min-width: 768px) {
+
+    .homepageIcon-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.2rem;
+      margin: 0 auto;
+    }
+
+    .icon-div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
   

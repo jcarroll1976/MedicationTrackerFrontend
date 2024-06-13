@@ -29,12 +29,12 @@ export default function Home() {
         <div className="homepage-container">
             <h1>{greetingMessage}</h1>
             <div className="homepageIcon-container">
-                <div>
+                <div className="icon-div">
                     <h3>Your Medications</h3>
                     <p>Find All Your Medications Here.</p>
                     <GiMedicines size={120} color="skyblue" />
                 </div>
-                <div>
+                <div className="icon-div">
                     <h3>Your Dosage Logs</h3>
                     <p>Find A Log Of Your Medication Doses Here.</p>
                     <CiViewList size={120} color="skyblue" />
