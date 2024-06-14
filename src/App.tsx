@@ -25,7 +25,7 @@ function App() {
   const [selectedMedicationId, setSelectedMedicationId] = useState<Medication | null>(null);
 
   const handleLogDosage = (dosageLog: DosagesLog) => {
-    console.log("Dosage log added:", dosageLog);
+    console.log("Dosage log added:",dosageLog);
   }
 
   function submitHandler(user_id:string,medication: Medication) {

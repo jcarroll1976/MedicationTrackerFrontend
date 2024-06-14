@@ -1,4 +1,4 @@
-body {
+/*body {
     height: 500px;
     width:100vw;
 }
@@ -21,21 +21,107 @@ h1 {
     }
 
     .medication-table tr {
-        /* Make table rows display flex and wrap if content overflows */
+        /* Make table rows display flex and wrap if content overflows 
         display: flex;
         flex-wrap: wrap;
       }
     
       .medication-table th,
       .medication-table td {
-        /* Set width for table cells to prevent horizontal overflow */
+        /* Set width for table cells to prevent horizontal overflow 
         width: 100%;
-        /* Remove or adjust padding/margin for better spacing on mobile */
+        /* Remove or adjust padding/margin for better spacing on mobile 
         padding: 0.5rem 1rem;
         margin-bottom: 0.5rem;
-        /* Display table cell content in a single line if it overflows */
+        /* Display table cell content in a single line if it overflows 
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }*/
+
+    body {
+      height: 500px;
+      width: 100vw;
+    }
+    
+    h1 {
+      color: blue;
+    }
+
+    a {
+      text-decoration: none;
+    }
+    
+    .medication-div {
+      background-color: #243B55;
+      font-family: "Roboto";
+      height: 500px;
+    }
+    
+    /* Default styles (apply to all screen sizes) */
+    .medication-table {
+      width: 100%; /* Ensure table fills available width */
+      border-collapse: collapse; /* Remove borders between cells for cleaner look */
+    }
+    
+    .medication-table th,
+    .medication-table td {
+      padding: 0.5rem 1rem; /* Adjust padding for better spacing */
+      border: 1px solid #ddd; /* Add thin borders for separation */
+      text-align: left; /* Align content to the left by default */
+    }
+    
+    .medication-table thead th {
+      background-color: #f2f2f2; /* Light background for table header */
+    }
+    
+    /* Media query for screens wider than 768px */
+    @media screen and (min-width: 768px) {
+      .medication-table {
+        display: table; /* Switch back to table layout for larger screens */
+      }
+    }
+    
+    /* Media query for screens wider than 1024px (optional) */
+    @media screen and (min-width: 1024px) {
+      .medication-table {
+        /* Add optional styles for larger screens (e.g., increase font size, cell width) */
+      }
+    }
+    
+    /* Media query for screens wider than 1440px (optional) */
+    @media screen and (min-width: 1440px) {
+      .medication-table {
+        /* Add optional styles for very large screens */
+      }
+    }
+    
+    /* Mobile-specific styles (already defined) */
+    @media screen and (max-width: 768px) {
+      .medication-table {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .medication-table th {
+        display: none;
+      }
+    
+      .medication-table tr {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    
+      .medication-table th,
+      .medication-table td {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
       }
     }
+    
