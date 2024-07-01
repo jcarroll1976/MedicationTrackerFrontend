@@ -48,7 +48,7 @@ function UserMedicationLog() {
     <div>
       {medicationId && (
         <>
-          <h2>{medication?.name} Dosage Logs</h2>
+          <h2>{medication?.name} Dosage Log</h2>
           {/* Remove AddDosageLog component as you're not adding new logs */}
 
           {/* Table for existing logs (optional) */}

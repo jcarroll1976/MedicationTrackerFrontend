@@ -15,7 +15,7 @@ interface Props {
 function MedicationModal({ isOpen, closeModal, title, children,selectedMedication }: Props) {
   return (
     <div>
-      <Modal isOpen={isOpen} onRequestClose={closeModal} contentLabel={title}>
+      <Modal className="modal" isOpen={isOpen} onRequestClose={closeModal} contentLabel={title}>
         <h2>{title}</h2>
         {children}
         <button onClick={closeModal}>Close</button>

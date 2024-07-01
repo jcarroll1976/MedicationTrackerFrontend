@@ -16,7 +16,7 @@
   .add-dosage-log p,
   .add-dosage-log button {
     margin-bottom: 0.5rem; /* Adjust margin values as needed */
-    font-size: 1.1rem;
+    font-size: 0.25rem;
   }
   
   /* Media queries for larger screens */

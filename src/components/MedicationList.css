@@ -52,6 +52,11 @@ h1 {
     a {
       text-decoration: none;
     }
+
+    .addButton {
+      margin: 1rem auto;
+      text-align: center;
+    }
     
     .medication-div {
       background-color: #243B55;
@@ -69,7 +74,7 @@ h1 {
     .medication-table td {
       padding: 0.5rem 1rem; /* Adjust padding for better spacing */
       border: 1px solid #ddd; /* Add thin borders for separation */
-      text-align: left; /* Align content to the left by default */
+      text-align: center; /* Align content to the left by default */
     }
     
     .medication-table thead th {

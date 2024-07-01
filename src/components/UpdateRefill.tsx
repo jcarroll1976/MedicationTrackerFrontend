@@ -105,6 +105,7 @@ export default function UpdateRefill({ medicationId, onSubmit }: UpdateRefillDat
 import React, { FormEvent, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'; // For navigation and getting route parameters
 import { Medication } from '../models/UserMedication';
+import "./UpdateRefill.css";
 
 interface UpdateRefillProps {
   // No longer needed as we'll use useParams
@@ -142,7 +143,7 @@ export default function UpdateRefill({ onSubmit }: UpdateRefillProps) {
   };
 
   return (
-    <div>
+    <div className='update-refill'>
       <h2>Update Refill Date</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="new-refill-date">

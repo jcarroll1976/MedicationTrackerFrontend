@@ -55,73 +55,75 @@ export default function MedicationList() {
         <div>
             <h2>Click on medication name to log dosage</h2>
             <table className="medication-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Dosage</th>
-            <th>Frequency</th>
-            <th>Instructions</th>
-            <th>Refill Date</th>
-            <th>Refill Reminder</th>
-          </tr>
-        </thead>
-        <tbody>
-          {medications?.map((medication) => (
-            <tr key={medication._id}>
-              <Link to={`/medications/${medication._id}/add-dosage`}><td>{medication.name.toUpperCase()}</td></Link>
-              <td>{medication.dosage}</td>
-              <td>{medication.frequency}</td>
-              <td>
-                {medication.instructions || medication.sideEffects ? (
-                  <button onClick={() => openModal(medication)}>
-                    Click for Instructions/Side Effects
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Dosage</th>
+              <th>Frequency</th>
+              <th>Instructions</th>
+              <th>Refill Date</th>
+              <th>Refill Reminder</th>
+            </tr>
+          </thead>
+          <tbody>
+            {medications?.map((medication) => (
+              <tr key={medication._id}>
+                <Link to={`/medications/${medication._id}/add-dosage`}><td>{medication.name.toLowerCase()}</td></Link>
+                <td>{medication.dosage}</td>
+                <td>{medication.frequency}</td>
+                <td>
+                  {medication.instructions || medication.sideEffects ? (
+                    <button onClick={() => openModal(medication)}>
+                      Click for Instructions/Side Effects
+                    </button>
+                  ) : (
+                    "-"
+                  )}
+                </td>
+                <td>
+                  {medication.refillDate ? (moment(medication.refillDate).format('MM/DD/YYYY')) : "N/A"}
+                  <Link to={`/medications/${medication._id}/update-refill`}><button>Click to Update</button></Link>
+                </td>
+                <td>
+                  <RefillReminder medication={medication} />
+                </td>
+                <td>
+                  <button onClick={() => handleRemoveMedication(medication._id!)}>
+                    Remove Medication
                   </button>
-                ) : (
-                  "-"
-                )}
-              </td>
-              <td>
-                {medication.refillDate ? (moment(medication.refillDate).format('MM/DD/YYYY')) : "N/A"}
-                <Link to={`/medications/${medication._id}/update-refill`}><button>Click to Update</button></Link>
-              </td>
-              <td>
-                <RefillReminder medication={medication} />
-              </td>
-              <td>
-                <button onClick={() => handleRemoveMedication(medication._id!)}>
-                  Remove Medication
-                </button>
-              </td>
-            </tr> 
-          ))}
-        </tbody>
-        </table>
-      <MedicationModal
-        isOpen={isOpen}
-        closeModal={closeModal}
-        title={selectedMedication?.name ? `${selectedMedication.name.toUpperCase()} Details` : "Medication Details"}
-        selectedMedication={selectedMedication}
-      >
-        {selectedMedication?.instructions ? (
-          <>
-            <h3>Instructions</h3>
-            <p>{selectedMedication.instructions}</p>
-          </>
-        ) : (
-          <p>No instructions available.</p>
-        )}
-       {selectedMedication?.sideEffects ? (
-          <>
-            <h3>Side Effects</h3>
-            {/* Assuming sideEffects is a string or array of strings */}
-            <p>{selectedMedication.sideEffects}</p>
-            {/* You can modify this to display side effects in a list if it's an array */}
-          </>
-        ) : (
-          <p>No side effects listed.</p>
-        )}
-      </MedicationModal>
-      <Link to={"/add-medication"}><button>Add A Medication</button></Link>
+                </td>
+              </tr> 
+            ))}
+          </tbody>
+          </table>
+        <MedicationModal
+          isOpen={isOpen}
+          closeModal={closeModal}
+          title={selectedMedication?.name ? `${selectedMedication.name.toUpperCase()} Details` : "Medication Details"}
+          selectedMedication={selectedMedication}
+        >
+          {selectedMedication?.instructions ? (
+            <>
+              <h3>Instructions</h3>
+              <p>{selectedMedication.instructions}</p>
+            </>
+          ) : (
+            <p>No instructions available.</p>
+          )}
+        {selectedMedication?.sideEffects ? (
+            <>
+              <h3>Side Effects</h3>
+              {/* Assuming sideEffects is a string or array of strings */}
+              <p>{selectedMedication.sideEffects}</p>
+              {/* You can modify this to display side effects in a list if it's an array */}
+            </>
+          ) : (
+            <p>No side effects listed.</p>
+          )}
+        </MedicationModal>
+          <div className="addButton">
+            <Link to={"/add-medication"}><button>Add A Medication</button></Link>
+          </div>
         </div>
     )
 }

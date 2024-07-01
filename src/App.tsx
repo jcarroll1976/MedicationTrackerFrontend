@@ -7,7 +7,6 @@ import Login from './components/Login';
 import MedicationList from './components/MedicationList';
 import { DosagesLog, Medication } from './models/UserMedication';
 import AddMedication from './components/AddMedication';
-import MedicationDetails from './components/MedicationDetails';
 import { postUserMedication, updateUserMedication } from './services/MedicationServices';
 import AuthContext from './context/AuthContext';
 import Home from './components/Homepage';
@@ -16,6 +15,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import UserMedicationLog from './components/UserMedicationLog';
 import AddDosageLog from './components/AddDosageLog';
 import UpdateRefill from './components/UpdateRefill';
+import DosageLogList from './components/DosageLogList';
 
 function App() {
   const {user} = useContext(AuthContext);
@@ -50,7 +50,6 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path="/medications" element={<MedicationList />} />
           <Route path="/add-medication" element={<AddMedication onSubmit={(user_id: string,medication:Medication) => submitHandler(user_id!,medication)} />} />
-          <Route path="/medication-details/_id" element={<MedicationDetails />} />
           <Route
               path={`/medications/:medicationId/add-dosage`}
               element={<AddDosageLog selectedMedication = {selectedMedicationId} onSubmit={handleLogDosage} />} // Pass medicationId from useParams
@@ -60,6 +59,7 @@ function App() {
               element={<UserMedicationLog />}
           />
           <Route path={'/medications/:medicationId/update-refill'} element ={<UpdateRefill onSubmit={(medicationId:string,medication:Medication)=> updateRefillHandler(medicationId,medication)} />} />
+          <Route path={'/user-logs'} element={<DosageLogList />} />
           <Route path = "*" element={<Navigate to = "/"/>}/>
         </Routes>
       </div>

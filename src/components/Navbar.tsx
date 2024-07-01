@@ -56,9 +56,9 @@ export default function Navbar() {
                 <div className="mobile-div">
                     {user ? (
                         <div>
-                            <Link to = {"/home"} className="mobile-link" onClick={handleNav}><AiOutlineHome size={20} /><span>Home</span></Link>
-                            <Link to = {"/medications"} className="mobile-link" onClick={handleNav}><GiMedicines size={20} /><span>Medications</span></Link>
-                            <Link to = {"/login"} className="mobile-link" onClick={signOut}><FaGoogle size={20} />Sign Out</Link>
+                            <Link to = {"/home"} className="mobile-link" onClick={handleNav}><AiOutlineHome className="mobile-icom" size={20} /><span>Home</span></Link>
+                            <Link to = {"/medications"} className="mobile-link" onClick={handleNav}><GiMedicines className="mobile-icom" size={20} /><span>Medications</span></Link>
+                            <Link to = {"/login"} className="mobile-link" onClick={signOut}><FaGoogle className="mobile-icom" size={20} />Sign Out</Link>
                         </div>
                     ) : (
                         <div>
