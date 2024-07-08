@@ -38,6 +38,7 @@ function AddDosageLog({ selectedMedication, onSubmit }: Props) {
       console.error("Error adding dosage log:", err);
       // Handle errors (e.g., display an error message to the user)
     }
+    <Navigate to = "/medications" />
   };
 
   if (!user) {
@@ -48,20 +49,26 @@ function AddDosageLog({ selectedMedication, onSubmit }: Props) {
     <div className='add-dosage-log'>
       <form className='add-dosage-form' onSubmit={handleSubmit}>
         <h2>Log Dosage</h2>
+        <div className='form-group'>
         <label htmlFor="date">Date:</label>
         <input type="text" id="date" value={new Date().toLocaleDateString()} disabled /> {/* Display current date, disabled as it's captured in handleSubmit */}
+        </div>
+        <div className='form-group'>
         <label htmlFor="time">Time:</label>
         <input type="text" id="time" value={new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} disabled /> {/* Display current time, disabled as it's captured in handleSubmit */}
+        </div>
+        <div className='form-group'>
         <label htmlFor="notes">Notes:</label>
         <textarea id="notes" value={notes} onChange={(e) => setNotes(e.target.value)} />
+        </div>
         {selectedMedication && (
           <p>
             Adding dosage for medication: <b>{selectedMedication.name}</b>
           </p>
         )}
-        <button type="submit">Log Dosage</button>
+        <button className='submit-button' type="submit">Log Dosage</button>
       </form>
-      <Link to = {`/medications/${medicationId}/dosage-log`}><button>Dosage Logs</button></Link>
+      <Link to = {`/medications/${medicationId}/dosage-log`}><button className='log-button'>Dosage Log</button></Link>
     </div>
   );
 }

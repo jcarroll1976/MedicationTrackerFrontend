@@ -115,7 +115,7 @@ interface UpdateRefillProps {
 
 export default function UpdateRefill({ onSubmit }: UpdateRefillProps) {
   const { medicationId } = useParams<{ medicationId: string }>(); // Get medication ID from route parameters
-  const [newRefillDate, setNewRefillDate] = useState<string>('');
+  const [newRefillDate, setNewRefillDate] = useState<string>("");
   const [medication,setMedication] = useState<Medication>();
   const navigate = useNavigate();
 
@@ -131,16 +131,14 @@ export default function UpdateRefill({ onSubmit }: UpdateRefillProps) {
       const id = medicationId
       console.log(id);
       onSubmit(medicationId,updatedMedication); // Pass updated medication for submission
-      setNewRefillDate(''); // Clear form after submission
+      setNewRefillDate(""); // Clear form after submission
       navigate('/medications'); // Navigate back to medication list after update
     } else {
       console.error('Error updating medication: Missing medication ID or refill date.');
     }
   };
 
-  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNewRefillDate (event.target.value);
-  };
+  
 
   return (
     <div className='update-refill'>
@@ -152,11 +150,11 @@ export default function UpdateRefill({ onSubmit }: UpdateRefillProps) {
             type="date"
             id="new-refill-date"
             value={newRefillDate}
-            onChange={handleDateChange}
+            onChange={(e) => setNewRefillDate(new Date(e.target.value).toISOString().slice(0,10))}
             required
           />
         </label>
-        <button type="submit">Update Refill Date</button>
+        <button type="submit">Update</button>
       </form>
     </div>
   );

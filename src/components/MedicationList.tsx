@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import moment from "moment";
 
+
 import MedicationModal from "./MedicationModal";
 import { Medication } from "../models/UserMedication";
 import AuthContext from "../context/AuthContext";
@@ -14,12 +15,14 @@ export default function MedicationList() {
     const {user} = useContext(AuthContext);
     const [isOpen, setIsOpen] = useState(false);
     const [selectedMedication, setSelectedMedication] = useState<Medication | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         if (user?.uid) {
             getUserMedications(user.uid).then(data => {
-              console.log(data);
-                setMedications(data)
+                console.log(data);
+                setMedications(data);
+                setIsLoading(false);
             })
         }
     },[user])
@@ -53,6 +56,12 @@ export default function MedicationList() {
     
     return (
         <div>
+          {isLoading ? (
+            <div className="loading-message">
+              <p>Loading Medications...</p>
+            </div>
+          ) : (
+            <div>
             <h2>Click on medication name to log dosage</h2>
             <table className="medication-table">
           <thead>
@@ -65,15 +74,16 @@ export default function MedicationList() {
               <th>Refill Reminder</th>
             </tr>
           </thead>
+          {medications.length > 0 ? (
           <tbody>
             {medications?.map((medication) => (
               <tr key={medication._id}>
                 <Link to={`/medications/${medication._id}/add-dosage`}><td>{medication.name.toLowerCase()}</td></Link>
-                <td>{medication.dosage}</td>
-                <td>{medication.frequency}</td>
+                <td> <p className="mobile-label">Dosage: </p>{medication.dosage}</td>
+                <td> <p className="mobile-label">Frequency: </p>{medication.frequency}</td>
                 <td>
                   {medication.instructions || medication.sideEffects ? (
-                    <button onClick={() => openModal(medication)}>
+                    <button className="info-button" onClick={() => openModal(medication)}>
                       Click for Instructions/Side Effects
                     </button>
                   ) : (
@@ -81,20 +91,24 @@ export default function MedicationList() {
                   )}
                 </td>
                 <td>
-                  {medication.refillDate ? (moment(medication.refillDate).format('MM/DD/YYYY')) : "N/A"}
-                  <Link to={`/medications/${medication._id}/update-refill`}><button>Click to Update</button></Link>
+                  <p className="mobile-label">Refill Date: </p>{medication.refillDate ? (moment(medication.refillDate).format('MM/DD/YYYY')) : "No refill needed"}
+                  <Link to={`/medications/${medication._id}/update-refill`}><button className="update-button">Click to Update</button></Link>
                 </td>
                 <td>
                   <RefillReminder medication={medication} />
                 </td>
                 <td>
-                  <button onClick={() => handleRemoveMedication(medication._id!)}>
+                  <button className="remove-button" onClick={() => handleRemoveMedication(medication._id!)}>
                     Remove Medication
                   </button>
                 </td>
               </tr> 
             ))}
-          </tbody>
+          </tbody>) :
+          (
+            <div className="no-medications">
+              <p>No Medications Found.</p>
+            </div>)}
           </table>
         <MedicationModal
           isOpen={isOpen}
@@ -103,27 +117,39 @@ export default function MedicationList() {
           selectedMedication={selectedMedication}
         >
           {selectedMedication?.instructions ? (
-            <>
+            <div>
               <h3>Instructions</h3>
-              <p>{selectedMedication.instructions}</p>
-            </>
+              <p style={{display:"flex",flexWrap:"wrap"}}>{selectedMedication.instructions}</p>
+            </div>
           ) : (
-            <p>No instructions available.</p>
+            <div>
+              <h3>Instructions</h3>
+              <p>No instructions available.</p>
+            </div>
           )}
         {selectedMedication?.sideEffects ? (
             <>
               <h3>Side Effects</h3>
               {/* Assuming sideEffects is a string or array of strings */}
-              <p>{selectedMedication.sideEffects}</p>
+              <div>
+              <ul>
+                      {selectedMedication?.sideEffects?.map((sideEffect) => (
+                        <li key={sideEffect}><p>{sideEffect}</p></li>
+                      ))}
+              </ul>
+            </div>
               {/* You can modify this to display side effects in a list if it's an array */}
             </>
           ) : (
+           <div>
             <p>No side effects listed.</p>
+           </div>
           )}
         </MedicationModal>
           <div className="addButton">
             <Link to={"/add-medication"}><button>Add A Medication</button></Link>
           </div>
-        </div>
+        </div>)}
+      </div>
     )
 }

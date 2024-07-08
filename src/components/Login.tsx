@@ -15,12 +15,14 @@ export default function Login() {
                     <div className="login-content">
                         <h1 className="login-title">MediTrack</h1>
                         <h3>Stay Healthy, Stay on Track.</h3>
-                        <ul className="features">
-                            <li>Never miss a dose again with reminder notifications.</li>
-                            <li>Track your medications and refills seamlessly.</li>
-                            <li>Log dosages and manage your medication schedule.</li>
-                            <li>Securely access your medication information anytime, anywhere.</li>
-                        </ul>
+                        <div className="features">
+                            <ul>
+                                <li>Never miss a dose again with reminder notifications.</li>
+                                <li>Track your medications and refills seamlessly.</li>
+                                <li>Log dosages and manage your medication schedule.</li>
+                                <li>Securely access your medication information anytime, anywhere.</li>
+                            </ul>
+                        </div>
                         {/*user ?
                         <div><button className="login-button" onClick={signOut}>Sign out</button></div> :
                         <div><button className="login-button" onClick={signInWithGoogle}>Sign in with Google</button></div>

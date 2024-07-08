@@ -56,15 +56,22 @@
     background-color: rgb(243 244 246 / var(--tw-bg-opacity));
     --tw-shadow-color: #9ca3af;
     --tw-shadow: var(--tw-shadow-colored);
+    color: blue;
     margin: 1rem;
     padding: 1rem/* 16px */;
     cursor: pointer;
+}
 
+.mobile-link:hover {
+    color: skyblue;
+    opacity: 0.8;
+    
 }
 
 .navButtons {
     display: none;
 }
+
 
 @media screen and (min-width:768px) {
     .mobile-nav {
@@ -73,6 +80,10 @@
 
     .navButtons {
         display: flex;
+    }
+
+    span a {
+        cursor: pointer;
     }
 }
 

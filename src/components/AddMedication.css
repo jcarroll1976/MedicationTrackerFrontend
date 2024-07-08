@@ -6,7 +6,7 @@
 .add-medication-form {
     display: flex;
     flex-direction: column; /* Stack inputs vertically on mobile */
-    /*gap: 1rem; Add some space between form elements */
+    gap: 1rem;
     margin: 1rem; /* Add some margin for better layout */
   }
   
@@ -24,4 +24,46 @@
   .form-group {
     display: flex;
     flex-direction: column;
+    width: 100%;
+  }
+
+  .add-side-effect,
+  .add-medication {
+      background-color: green;
+      color: #fff;
+      border: none; /* Remove default border */
+      padding: 0.5rem 1rem; /* Add some padding */
+      border-radius: 4px; /* Rounded corners */
+      cursor: pointer; /* Indicate clickable element */
+      margin: 0.25rem; /* Add some margin for spacing */
+  }
+
+  .remove-side-effect {
+      background-color: #d9534f;
+      color: #fff;
+      border: none; /* Remove default border */
+      padding: 0.5rem 1rem; /* Add some padding */
+      border-radius: 4px; /* Rounded corners */
+      cursor: pointer; /* Indicate clickable element */
+      margin: 0.25rem; /* Add some margin for spacing */
+  }
+
+  @media screen and (min-width:768px) {
+    .form-group {
+      width: 50%;
+    }
+
+    .add-medication {
+      width: 50%;
+    }
+  }
+
+  @media screen and (min-width:1024px) {
+    .form-group {
+      width: 33%;
+    }
+
+    .add-medication {
+      width: 33%;
+    }
   }

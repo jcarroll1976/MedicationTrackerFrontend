@@ -1,0 +1,39 @@
+.dosage-log-list {
+    width: 100%;
+    height: 100vh;
+}
+
+h2 {
+    font-size: 1.3rem;
+    padding: 1rem;
+}
+
+.medication-links {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.medication-links a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+.medication-links a:hover {
+    color: blue;
+    opacity: 0.8
+}
+
+@media screen and (min-width: 768px) {
+    .dosage-log-list {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .dosage-log-list {
+      max-width: 700px;
+    }
+  }

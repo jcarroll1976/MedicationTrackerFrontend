@@ -1,0 +1,9 @@
+.refill-reminder {
+    color: #d9534f;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .refill-reminder p {
+    margin: 0;
+  }

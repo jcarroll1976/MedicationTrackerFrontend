@@ -18,7 +18,16 @@ function MedicationModal({ isOpen, closeModal, title, children,selectedMedicatio
       <Modal className="modal" isOpen={isOpen} onRequestClose={closeModal} contentLabel={title}>
         <h2>{title}</h2>
         {children}
-        <button onClick={closeModal}>Close</button>
+        <div style={{textAlign:"center"}}>
+          <button style={{
+                          backgroundColor: '#d9534f', 
+                          color:"#fff",
+                          border: "none",
+                          padding: "0.5rem 1rem",
+                          borderRadius: "4px",
+                          cursor: "pointer",
+                          margin: "o.25rem"}} onClick={closeModal}>Close</button>
+        </div>
       </Modal>
     </div>
   );

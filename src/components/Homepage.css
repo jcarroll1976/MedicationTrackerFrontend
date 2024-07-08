@@ -19,6 +19,16 @@
     text-align: center; /* Center text within each icon container */
     font-size: 1.1rem;
   }
+
+  a {
+    color: black;
+  }
+
+  a:hover {
+    color: blue;
+    opacity: 0.8;
+  }
+  
   
   h1 {
     font-size: 1.3rem;

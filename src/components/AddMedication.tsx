@@ -2,7 +2,8 @@ import { FormEvent, useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
 import { Medication } from "../models/UserMedication";
 import { postUserMedication } from "../services/MedicationServices";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "./AddMedication.css";
 
 
 interface Props {
@@ -20,6 +21,7 @@ export default function AddMedication({onSubmit}:Props) {
     const [refillDate,setRefillDate] = useState("");
     const [instructions,setInstructions] = useState("");
     const [sideEffects,setSideEffects] = useState<string[]>([]);
+    const navigate = useNavigate();
 
     const handleSubmit = (e:FormEvent) => {
         e.preventDefault();
@@ -33,6 +35,7 @@ export default function AddMedication({onSubmit}:Props) {
             sideEffects
         };
         onSubmit(user_id!,medication);
+        navigate("/medications")
         setName("");
         setDosage("");
         setFrequency("");
@@ -41,8 +44,10 @@ export default function AddMedication({onSubmit}:Props) {
         setSideEffects([]);
     };
 
+
+
     if (!user) {
-        return <Navigate to="/" />;
+        navigate("/");
     }
 
     return (
@@ -57,7 +62,7 @@ export default function AddMedication({onSubmit}:Props) {
                     onChange={(e) => setName(e.target.value)}
                 />
             </div>
-            <div className="form-group"></div>
+            <div className="form-group">
             <label htmlFor="dosage">Dosage:</label>
             <input
                 type="text"
@@ -66,7 +71,8 @@ export default function AddMedication({onSubmit}:Props) {
                 value={dosage}
                 onChange={(e) => setDosage(e.target.value)}
             />
-            <div className="form-group"></div>
+            </div>
+            <div className="form-group">
             <label htmlFor="frequency">Frequency:</label>
             <input
                 type="text"
@@ -75,13 +81,15 @@ export default function AddMedication({onSubmit}:Props) {
                 value={frequency}
                 onChange={(e) => setFrequency(e.target.value)}
             />
+            </div>
             <div className="form-group">
                 <label htmlFor="refillDate">Refill Date:</label>
+                <p>Click on calendar if medication has refill date.</p>
                 <input
                     type="date"
                     id="refillDate"
                     value={refillDate}
-                    onChange={(e) => setRefillDate(new Date(e.target.value).toString())}
+                    onChange={(e) => setRefillDate(new Date(e.target.value).toISOString().slice(0,10))}
                 />
             </div>
             <div className="form-group">
@@ -106,17 +114,17 @@ export default function AddMedication({onSubmit}:Props) {
                                     setSideEffects(newSideEffects)
                                 }}
                             />
-                            <button type="button" onClick={() => setSideEffects(sideEffects.slice(0,index))}>
+                            <button className="remove-side-effect" type="button" onClick={() => setSideEffects(sideEffects.slice(0,index))}>
                                 Remove
                             </button>
                         </div>
                     ))}
-                    <button type="button" onClick={() => setSideEffects([...sideEffects,""])}>
+                    <button className="add-side-effect" type="button" onClick={() => setSideEffects([...sideEffects,""])}>
                         Add Side Effect
                     </button>
                 </div>
             </div>
-            <button type="submit">Add Medication</button>
+            <button className="add-medication" type="submit">Add Medication</button>
         </form>
     )
 

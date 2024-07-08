@@ -1,0 +1,33 @@
+.medication-log {
+    padding: 1rem;
+}
+
+.medication-log h2 {
+    margin-bottom: 1rem;
+  }
+
+  
+.medication-log table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.medication-log table th,
+.medication-log table td {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+    .medication-log {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .medication-log {
+      max-width: 700px;
+    }
+  }

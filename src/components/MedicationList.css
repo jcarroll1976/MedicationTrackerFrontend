@@ -50,12 +50,33 @@ h1 {
     }
 
     a {
+      color:black;
       text-decoration: none;
+    }
+
+    a:hover {
+      color: blue;
     }
 
     .addButton {
       margin: 1rem auto;
       text-align: center;
+    }
+
+    .addButton button {
+      background-color: green;
+      color: #fff;
+      border: none; /* Remove default border */
+      padding: 0.5rem 1rem; /* Add some padding */
+      border-radius: 4px; /* Rounded corners */
+      cursor: pointer; /* Indicate clickable element */
+      margin: 0.25rem; /* Add some margin for spacing */
+    }
+
+    .loading-message {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     
     .medication-div {
@@ -80,6 +101,38 @@ h1 {
     .medication-table thead th {
       background-color: #f2f2f2; /* Light background for table header */
     }
+
+    .medication-table button {
+      border: none; /* Remove default border */
+      padding: 0.5rem 1rem; /* Add some padding */
+      border-radius: 4px; /* Rounded corners */
+      cursor: pointer; /* Indicate clickable element */
+      margin: 0.25rem; /* Add some margin for spacing */
+    }
+
+    .no-medications {
+      text-align: center;
+    }
+    
+    /* Style for the "Info" button */
+    .info-button {
+      background-color: #daeef3; /* Light blue background */
+      color: #333; /* White text color */
+    }
+    
+    /* Style for the "Update" button */
+    .update-button {
+      background-color: skyblue; /* Light orange background */
+      color: white; /* White text color */
+    }
+    
+    /* Style for the "Remove" button */
+    .remove-button {
+      background-color: #d9534f; /* Light red background */
+      color: white; /* White text color */
+    }
+
+    
     
     /* Media query for screens wider than 768px */
     @media screen and (min-width: 768px) {
@@ -92,6 +145,10 @@ h1 {
     @media screen and (min-width: 1024px) {
       .medication-table {
         /* Add optional styles for larger screens (e.g., increase font size, cell width) */
+      }
+
+      .mobile-label {
+        display: none;
       }
     }
     
@@ -128,5 +185,10 @@ h1 {
         white-space: nowrap;
         overflow: hidden;
       }
+    }
+
+    li {
+      font-size: 1rem;
+      text-align: left;
     }
     

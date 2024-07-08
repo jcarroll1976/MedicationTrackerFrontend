@@ -1,3 +1,4 @@
+
 import { Medication } from "../models/UserMedication";
 
 interface Props {
@@ -12,8 +13,10 @@ export default function RefillReminder({medication}: Props) {
       
     // Logic to display refill reminder message (customize based on your requirements)
     let reminderMessage;
-    if (medication.refillDate && daysRemaining! <= 7 && daysRemaining! > 0) {
+    if (medication.refillDate && daysRemaining! <= 7 && daysRemaining! > 1 && daysRemaining! > 0) {
         reminderMessage = `Refill reminder for ${medication.name}. You have ${daysRemaining} days remaining.`;
+    } else if (medication.refillDate && daysRemaining! === 1) {
+      reminderMessage = `Refill reminder for ${medication.name}. You have 1 day remaining.`;
     } else if (medication.refillDate && daysRemaining! <= 0) {
         reminderMessage = `Refill needed for ${medication.name}.`;
     }
@@ -44,10 +47,8 @@ function calculateDaysRemaining(refillDateString: string | undefined, todayStrin
     const timeDifference = refillDate.getTime() - today.getTime();
   
     // Convert milliseconds to days and round down to the nearest whole day
-    const daysRemaining = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const daysRemaining = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
   
     return daysRemaining;
   }
 };
-
-
