@@ -117,10 +117,12 @@ export default function MedicationList() {
           selectedMedication={selectedMedication}
         >
           {selectedMedication?.instructions ? (
-            <div>
-              <h3>Instructions</h3>
-              <p style={{display:"flex",flexWrap:"wrap"}}>{selectedMedication.instructions}</p>
+            <>
+            <h3>Instructions</h3>
+            <div className="scrollable-content">
+              <p>{selectedMedication.instructions}</p>
             </div>
+            </>
           ) : (
             <div>
               <h3>Instructions</h3>
@@ -131,13 +133,13 @@ export default function MedicationList() {
             <>
               <h3>Side Effects</h3>
               {/* Assuming sideEffects is a string or array of strings */}
-              <div>
               <ul>
                       {selectedMedication?.sideEffects?.map((sideEffect) => (
-                        <li key={sideEffect}><p>{sideEffect}</p></li>
+                        <div className="scrollable-content" key={sideEffect}>
+                        <li ><p>{sideEffect}</p></li>
+                        </div>
                       ))}
               </ul>
-            </div>
               {/* You can modify this to display side effects in a list if it's an array */}
             </>
           ) : (

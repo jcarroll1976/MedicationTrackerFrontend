@@ -18,7 +18,7 @@
       position: fixed;
       top: 50%;
       left: 50%;
-      width: 80%;
+      width: 50%;
       height: 60%; /* Full viewport height on mobile */
       padding:20px;
       display: flex;

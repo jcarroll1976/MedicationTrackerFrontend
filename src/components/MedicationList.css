@@ -132,7 +132,18 @@ h1 {
       color: white; /* White text color */
     }
 
-    
+    .scrollable-content {
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: auto;
+      max-height: 200px;
+      scrollbar-width: thin;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+    }
     
     /* Media query for screens wider than 768px */
     @media screen and (min-width: 768px) {
@@ -186,6 +197,8 @@ h1 {
         overflow: hidden;
       }
     }
+
+   
 
     li {
       font-size: 1rem;
