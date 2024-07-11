@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import moment from "moment";
 
 
-import MedicationModal from "./MedicationModal";
+import CustomModal from "./MedicationModal";
 import { Medication } from "../models/UserMedication";
 import AuthContext from "../context/AuthContext";
 import { getUserMedications, removeUserMedication } from "../services/MedicationServices";
@@ -110,7 +110,7 @@ export default function MedicationList() {
               <p>No Medications Found.</p>
             </div>)}
           </table>
-        <MedicationModal
+        {/*<MedicationModal
           isOpen={isOpen}
           closeModal={closeModal}
           title={selectedMedication?.name ? `${selectedMedication.name.toUpperCase()} Details` : "Medication Details"}
@@ -131,8 +131,8 @@ export default function MedicationList() {
           )}
         {selectedMedication?.sideEffects ? (
             <>
-              <h3>Side Effects</h3>
-              {/* Assuming sideEffects is a string or array of strings */}
+              <h3>Side Effects</h3>*/}
+              {/* Assuming sideEffects is a string or array of strings 
               <ul>
                       {selectedMedication?.sideEffects?.map((sideEffect) => (
                         <div className="scrollable-content" key={sideEffect}>
@@ -140,14 +140,22 @@ export default function MedicationList() {
                         </div>
                       ))}
               </ul>
-              {/* You can modify this to display side effects in a list if it's an array */}
+              {/*} You can modify this to display side effects in a list if it's an array 
             </>
           ) : (
            <div>
             <p>No side effects listed.</p>
            </div>
           )}
-        </MedicationModal>
+        </MedicationModal>*/}
+        {isOpen && (
+          <div className="modal-backdrop">
+          <CustomModal
+              isOpen = {isOpen}
+              closeModal={closeModal}
+              medication={selectedMedication ? selectedMedication : null}
+            />
+          </div>)}
           <div className="addButton">
             <Link to={"/add-medication"}><button>Add A Medication</button></Link>
           </div>

@@ -1,8 +1,7 @@
-.modal {
+/*.modal {
     position: fixed;
     top: 50%;
     left: 50%;
-    /* Adjust width and height as needed */
     width: 50%;
     height: 50%;
     transform: translate(-50%, -50%);
@@ -12,14 +11,13 @@
     border-radius: 5px;
   }
   
-  /* Media query for mobile devices (adjust breakpoint as needed) */
   @media screen and (max-width: 768px) {
     .modal {
       position: fixed;
       top: 50%;
       left: 50%;
       width: 50%;
-      height: 60%; /* Full viewport height on mobile */
+      height: 60%; 
       padding:20px;
       display: flex;
       flex-direction: column;
@@ -31,8 +29,57 @@
     }
   
     .modal-backdrop {
-      /* Apply styles for darkened background on mobile */
-      background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+    
+      background-color: rgba(0, 0, 0, 0.5);
     }
+  }*/
+
+  .modal {
+    /* Modal positioning and styling */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure modal is above other elements */
+    background-color: white; /* Set modal background color */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Optional drop shadow */
   }
+  
+  /* Style for the blurred background overlay */
+  .modal-backdrop {
+    overflow: hidden; /* Prevent page scrolling while modal is open */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    z-index: 1;
+  }
+
+  .scrollable-content {
+    height: 150px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    padding: 5px;
+  }
+
+  
+
+  .modal button {
+      border: none;
+      background-color: #d9534f;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0.25rem;
+    }
+  
+  
+  
   
