@@ -52,11 +52,11 @@ export default function CustomModal({isOpen,closeModal,medication}:Props) {
   return (
     <div className="modal-backdrop">
       <div className="modal">
-        <h2>{medication?.name}</h2>
+        <h2>{medication?.name} details</h2>
         {medication?.instructions && (
           <div className="instructions">
             <h3>Instructions</h3>
-            <div className="scrollable-content">
+            <div className="scrollable-content instructions-text">
             <p>{medication?.instructions}</p>
             </div>
           </div>
@@ -70,16 +70,18 @@ export default function CustomModal({isOpen,closeModal,medication}:Props) {
             ) : (
               <ul>
                 {medication?.sideEffects.map((sideEffect) => (
-                  <li key={sideEffect}>{sideEffect}</li>
+                  <li key={sideEffect}><p>{sideEffect}</p></li>
                 ))}
               </ul>
             )}
             </div>
           </div>
         )}
-        <button className="close-button" onClick={closeModal}>
-          Close
-        </button>
+        <div className="close-modal">
+          <button className="close-button" onClick={closeModal}>
+            Close
+          </button>
+        </div>
       </div>
     </div>
   )

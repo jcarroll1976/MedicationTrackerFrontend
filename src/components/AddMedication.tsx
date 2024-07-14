@@ -98,6 +98,7 @@ export default function AddMedication({onSubmit}:Props) {
                     id="instructions"
                     value={instructions}
                     onChange={(e) => setInstructions(e.target.value)}
+                    style={{whiteSpace: "pre-wrap"}}
                 />
             </div>
             <div className="form-group">

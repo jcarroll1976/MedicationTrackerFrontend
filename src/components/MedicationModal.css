@@ -1,74 +1,52 @@
-/*.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #f8f8f8;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 5px;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .modal {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 50%;
-      height: 60%; 
-      padding:20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items:flex-start;
-      overflow-x: auto;
-      overflow-y: auto;
-      border-radius: 5px;
-    }
-  
-    .modal-backdrop {
-    
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-  }*/
-
   .modal {
     /* Modal positioning and styling */
     position: fixed;
     top: 50%;
     left: 50%;
+    height: auto;
+    width: 50%;
     transform: translate(-50%, -50%);
-    z-index: 10; /* Ensure modal is above other elements */
-    background-color: white; /* Set modal background color */
+    z-index: 10;
+    background-color: white;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Optional drop shadow */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
   
-  /* Style for the blurred background overlay */
   .modal-backdrop {
-    overflow: hidden; /* Prevent page scrolling while modal is open */
+    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
-    backdrop-filter: blur(5px); /* Apply blur effect */
+    /*background-color: rgba(0, 0, 0, 0.4); Semi-transparent black background */
+    backdrop-filter: blur(5px);
     z-index: 1;
   }
 
   .scrollable-content {
-    height: 150px;
-    overflow-y: scroll;
-    overflow-x: scroll;
+    max-height: 150px;
+    overflow-y: auto;
     padding: 5px;
+    white-space: pre-wrap;
+    text-align: left;
+  }
+  .side-effects {
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
   }
 
-  
+  .instructions-text p {
+    white-space: pre-wrap;
+  }
+
+  .close-modal {
+    text-align: center;
+    padding: 1rem;
+  }
 
   .modal button {
       border: none;
