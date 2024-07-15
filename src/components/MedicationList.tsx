@@ -82,12 +82,12 @@ export default function MedicationList() {
                 <td> <p className="mobile-label">Dosage: </p>{medication.dosage}</td>
                 <td> <p className="mobile-label">Frequency: </p>{medication.frequency}</td>
                 <td>
-                  {medication.instructions || medication.sideEffects ? (
+                  {medication.instructions !== "" || medication.sideEffects!.length > 0 ? (
                     <button className="info-button" onClick={() => openModal(medication)}>
                       Click for Instructions/Side Effects
                     </button>
                   ) : (
-                    "-"
+                    '-'
                   )}
                 </td>
                 <td>
@@ -110,44 +110,6 @@ export default function MedicationList() {
               <p>No Medications Found.</p>
             </div>)}
           </table>
-        {/*<MedicationModal
-          isOpen={isOpen}
-          closeModal={closeModal}
-          title={selectedMedication?.name ? `${selectedMedication.name.toUpperCase()} Details` : "Medication Details"}
-          selectedMedication={selectedMedication}
-        >
-          {selectedMedication?.instructions ? (
-            <>
-            <h3>Instructions</h3>
-            <div className="scrollable-content">
-              <p>{selectedMedication.instructions}</p>
-            </div>
-            </>
-          ) : (
-            <div>
-              <h3>Instructions</h3>
-              <p>No instructions available.</p>
-            </div>
-          )}
-        {selectedMedication?.sideEffects ? (
-            <>
-              <h3>Side Effects</h3>*/}
-              {/* Assuming sideEffects is a string or array of strings 
-              <ul>
-                      {selectedMedication?.sideEffects?.map((sideEffect) => (
-                        <div className="scrollable-content" key={sideEffect}>
-                        <li ><p>{sideEffect}</p></li>
-                        </div>
-                      ))}
-              </ul>
-              {/*} You can modify this to display side effects in a list if it's an array 
-            </>
-          ) : (
-           <div>
-            <p>No side effects listed.</p>
-           </div>
-          )}
-        </MedicationModal>*/}
         {isOpen && (
           <div className="modal-backdrop">
           <CustomModal

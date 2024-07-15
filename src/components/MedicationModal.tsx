@@ -53,12 +53,17 @@ export default function CustomModal({isOpen,closeModal,medication}:Props) {
     <div className="modal-backdrop">
       <div className="modal">
         <h2>{medication?.name} details</h2>
-        {medication?.instructions && (
+        {medication?.instructions ? (
           <div className="instructions">
             <h3>Instructions</h3>
             <div className="scrollable-content instructions-text">
             <p>{medication?.instructions}</p>
             </div>
+          </div>
+        ):(
+          <div className="instructions">
+            <h3>Instructions</h3>
+            <p>No instructions available.</p>
           </div>
         )}
         {medication?.sideEffects && (
@@ -75,6 +80,7 @@ export default function CustomModal({isOpen,closeModal,medication}:Props) {
               </ul>
             )}
             </div>
+            {medication.sideEffects.length === 0 && (<p>No side effects available.</p>)}
           </div>
         )}
         <div className="close-modal">

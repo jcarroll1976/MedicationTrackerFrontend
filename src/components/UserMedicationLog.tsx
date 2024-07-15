@@ -17,11 +17,11 @@ function UserMedicationLog() {
 
 
   useEffect(() => {
-    if (medicationId ) {
-      getUserDosageLogById(medicationId).then(data => {
-        setDosageLogs(data);
-        setIsLoading(false);
-      })
+    if (medicationId) {
+      getUserDosageLogById(medicationId)
+        .then(data => setDosageLogs(data))
+        .catch(error => console.error(error))
+        .finally(() => setIsLoading(false));
     }
   }, [medicationId]);
 
@@ -36,7 +36,7 @@ function UserMedicationLog() {
           <h2>{medication?.name} Dosage Log</h2>
           {isLoading ? (
             <div>
-              <p>Loading...</p>
+              <p>Loading Medications...</p>
             </div>
           ) :
           (dosageLogs.length > 0 && (
