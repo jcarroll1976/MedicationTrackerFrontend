@@ -6,10 +6,10 @@ This is the frontend repository for a medication tracking application built with
 
 Key Features:
 
-User authentication with Google
-Medication management (add, edit, delete)
-Dosage logging and tracking
-Refill reminders
+User authentication with Google,
+Medication management (add, edit, delete),
+Dosage logging and tracking,
+Refill reminders, and
 Customizable settings
 Technologies Used:
 
