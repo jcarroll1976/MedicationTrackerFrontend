@@ -11,14 +11,12 @@ Medication management (add, edit, delete),
 Dosage logging and tracking,
 Refill reminders, and
 Customizable settings
-Technologies Used:/n
 
 React
 Typescript
 CSS
-Prerequisites:
 
-Node.js and npm (or yarn) installed
+Prerequisites: Node.js and npm (or yarn) installed
 Installation:
 
 Clone the repository:
