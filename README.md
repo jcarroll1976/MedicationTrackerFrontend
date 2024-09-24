@@ -11,7 +11,7 @@ Medication management (add, edit, delete),
 Dosage logging and tracking,
 Refill reminders, and
 Customizable settings
-Technologies Used:
+Technologies Used:/n
 
 React
 Typescript
