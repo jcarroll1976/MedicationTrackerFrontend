@@ -41,3 +41,5 @@ npm start
 Use code with caution.
 
 The application will be accessible at http://localhost:3000.
+
+The backend repository for this application can be found at https://github.com/jcarroll1976/MedicationTrackerBackend
