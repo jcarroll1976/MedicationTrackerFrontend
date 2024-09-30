@@ -22,7 +22,7 @@ Installation:
 Clone the repository:
 
 Bash
-git clone https://github.com/your-username/medication-tracker-frontend.git
+git clone https://github.com/jcarroll1976/MedicationTrackerFrontend
 Use code with caution.
 
 Install dependencies:
